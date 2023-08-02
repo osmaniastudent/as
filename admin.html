@@ -452,7 +452,7 @@ xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 
 	var xhtto = new XMLHttpRequest();
 	xhtto.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	xhtto.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
-	urlfs = "https://allcpu.github.io/atnd/ats.html?"+setroom+"sss"+batches;
+	urlfs = "https://osmaniastudent.github.io/as/ats.html?"+setroom+"sss"+batches;
 	caption=encodeURI("Subject : "+document.getElementById("subji").value+"  Date : "+new Date().toDateString()+"  Time: "+document.getElementById("strtimpic").value+"-"+document.getElementById("endtimpic").value+"  Batches :"+bstr+" Roll No: "+rollary[0]+"-"+rollary[1]+"  Administered by: "+document.getElementById("facti").value+"\n"+urlfs);
 	var xtthp = new XMLHttpRequest();
 	xtthp.responseType="json";
@@ -475,6 +475,11 @@ xhttf.send();
 //drawatt(["many","a1","b1","c1"]);
 
 function remain(){
+var coda = Math.random()*(200) + 100;
+document.getElementById("kode").innerText=coda;
+var admurl = "https://osmaniastudent.github.io/as/ats.html?"+setroom+"zzz"+(coda*77)+"zzz"+(batches.replace("s","x"));
+var xhttu = new XMLHttpRequest();
+xhttu.onreadystatechange = function() {if (this.readyState == 4 && this.status == 200) {
 var xhttp = new XMLHttpRequest();
 xhttp.responseType = 'json';
 xhttp.onreadystatechange = function() {if (this.readyState == 4 && this.status == 200) {document.getElementById("msgidb").innerText=(this.response.result.message_id);
@@ -483,10 +488,13 @@ document.getElementById("help").style.display="block";
 document.getElementById("attbox").style.display="flex";
 document.getElementById("atctrl").style.display="block";
 document.getElementById("crsbut").disabled = true;
-editgms();										       
+editgms();
 }};
 xhttp.open("GET", ("https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767&text=loading.."), true);
 xhttp.send();
+}};
+xhttu.open("GET", ("https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767&text="+), true);
+xhttu.send();
 }
 
 function crtsht(){
@@ -590,7 +598,7 @@ function endatts(){
 addEventListener("beforeunload", endatts);
 
 function chngsht(){
-	urlfs = "https://allcpu.github.io/atnd/ats.html?"+setroom+"sss"+batches;
+	urlfs = "https://osmaniastudent.github.io/as/ats.html?"+setroom+"sss"+batches;
 	caption=encodeURI("Subject : "+document.getElementById("subji").value+"  Date : "+new Date().toDateString()+"  Time: "+document.getElementById("strtimpic").value+"-"+document.getElementById("endtimpic").value+"  Batches :"+bstr+" Roll No: "+rollary[0]+"-"+rollary[1]+"  Administered by: "+document.getElementById("facti").value+"\n"+urlfs);
 	var xtthp = new XMLHttpRequest();
 	xtthp.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
