@@ -1,0 +1,227 @@
+
+
+<html>
+<head>
+<style>
+.main{
+
+}
+.each{
+    background-color: #d6bc14;
+    width: 100%;
+    align-items: center;
+    border: 2px solid black;
+}
+.rn{
+  min-width: 61px;
+  min-height: 25px;
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  background-color: seashell;
+  width: fit-content;
+  text-align: center;
+  padding: 4px;
+  font-size: 30;
+  font-family: monospace;
+}
+.pa{
+    display: flex;
+    flex-direction: row;
+    column-gap: 5px;
+}
+.name{
+  border-right: 2px solid black;
+  border-left: 2px solid black;
+  text-align: center;
+  height:100%;
+  margin:auto;
+
+}
+.rnb{
+    display: flex;
+    flex-direction: row;
+}
+.pre{
+  width:36px;
+  height:36px;
+  background:url('pre.png');
+  background-size:contain;
+  border: 5px solid #d6bc14;
+}
+.abs{
+  width:36px;
+  height:36px;
+  background:url('abs.png');
+  background-size:contain;
+  border: 5px solid red;
+}
+.imgtr{
+   min-width:50px;
+   max-height:22px;
+   font-size: 20px;
+   font-family: monospace;
+   border: 1px solid black;
+}
+.imgta{
+   min-width:30px;
+   font-size: 20px;
+   font-family: monospace;
+   border: 1px solid black;
+}
+thead{
+  background-color:orange;
+}
+td{
+  text-align:center;
+  border:1px solid black;
+}
+tr{
+  border:1px solid black;
+}
+table{
+    border-spacing: 0px;
+}
+.preb{
+  background-size: cover;
+  background-image: url('p.png');
+  width: 20px;
+  height: 32px;
+}
+.absb{
+  background-size: cover;
+  background-image: url('a.png');
+  width: 20px;
+  height: 32px;
+}
+.flex{
+  display: flex;
+  justify-content: space-around;
+  padding:10px;
+}
+.flexc{display:flex;border:2px solid black;background:#d6bc14;}
+#tools{}
+#tools div{display:flex;align-items:center;}
+.labtc{
+	display:inline-flex;
+	align-items:center;
+	font-family:monospace;
+	font-size:17px;
+}
+.inptc{
+    width: 20px;
+    height: 20px;
+}
+.apb{min-width:61px;min-height:25px;border-right:2px solid black;background-color:seashell;width:fit-content;text-align:center;padding:4px;font-size:30px;font-family: monospace;}
+.apbab{width:36px;height:36px;background:url('pre.png');background-size:contain;border:5px solid #d6bc14;}
+.apbpr{width:36px;height:36px;background:url('abs.png');background-size:contain;border:5px solid #d6bc14;}
+</style>
+<script src="h2c.js"></script>
+<script src="jm.js"></script>
+<script src="jtm.js"></script>
+<link rel="stylesheet" href="jtm.css"/>
+<script src="sam.js"></script>
+</head>
+<body onload="loaded()">
+<div id="bodya">
+<div id="tools">
+<button type="button" style="display:block;width:50%;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;" onclick='loaded()'>Refresh</button>
+</div>
+<div id="help" style="display:none;">
+<div id="info"></div>
+<div id="kode"></div>
+</div>
+<div id="atctrl">
+<div style="border:solid 2px black;margin-top:10px;">
+<div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('absudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('absudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Absent Students</div>
+<div class="flex" id="absudbox" onclick="onclk(event);" style="flex-wrap:wrap;">
+</div>
+</div>
+
+<div style="border:solid 2px black;margin-top:10px;">
+<div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('presudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('presudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Present Students</div>
+<div class="flex" id="presudbox" onclick="onclk(event);" style="flex-wrap:wrap;">
+</div>
+</div>
+</div>
+<script>
+//https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767&text=bye
+
+var arr = [[],[1,"AADHIGONDA PUNEETH",8121335450],[2,"AASHRITHA THOUDISETTI",7396500141],[3,"ABDUL AZIZ MADANI",9849767034],[4,"ABDUL RAHEEM",6305128827],[5,"ADITI AGARWAL",7901035281],[6,"AGRE TARUN",7729842917],[7,"AKKALDEVI MAITHILI PRIYA",9440132938],[8,"ALEENA MOHAMMADI",9912062631],[9,"ALLURI ROHIT REDDY",9490043991],[10,"AMAR",8310952280],[11,"ANEM LALITHA",7989531455],[12,"ANGARA YASHNA",9014494432],[13,"ANIKA KESHARWANI",8008001351],[14,"ANISH KANTAE",9885297306],[15,"ANNADI SRI MANI DEEP REDDY",7416839138],[16,"ANUGANDULA BHAVYA SRI",9440982560],[17,"ANUMULA BHARATH KUMAR",9618547027],[18,"ANUSHA FARSINAVIS",7259466168],[19,"ATIKA HAFEEZ IQRA",9182189581],[20,"ATURI POOJITHA",9703673661],[21,"B SAHITHI REDDY",9441113477],[22,"B SURYA ARCHITH",9030063272],[23,"BACHU MAHESH VARMA",9989162754],[24,"BAIRAM SAIEESH",8688186981],[25,"BAIRLA ANJALI",9885341891],[26,"BAMBULGI VAISHNAVI",9177707462],[27,"BANDAGORLA VASAVI",9392764601],[28,"BANDI REVANTH KUMAR",7386828918],[29,"BANDI SAI HITESH REDDY",9912998852],[30,"BANTU SANDEEP",6309731149],[31,"BAPATU VERUGUTTI LASYA",6303545485],[32,"BATTHALA SAMHITHA",9885367576],[33,"BEERAM ABHIGNA REDDY",9492446854],[34,"BEJJANKI HARSHITHA",9885272459],[35,"BHYRAVAVARJULA N V B S NARAYANA",9989365705],[36,"BOLLU SRIVANI",7901387717],[37,"BUDURU SAI SWETHA",8522825843],[38,"BUJALA SAHITH REDDY",6300295985],[39,"BURGUPALLY SHIVA KARTHIK",8500544546],[40,"BUSIREDDY LIKHITESHWAR REDDY",9290641123],[41,"CHADA VARDHAN",9989941815],[42,"CHALLA MANOJ KUMAR REDDY",6281189726],[43,"CHAMALA SREEJA",7013750468],[44,"CHERIPALLI VISHAL",9704758531],[45,"CHILIVERU SHIVA SANTHOSH",8179786626],[46,"CHINTHAKUNTA LAKSHMI THANUJA",9885686627],[47,"CHINTHALA VAISHNAVI",9676903543],[48,"DAMAMKAR SUNANDA",9440318318],[49,"DAMERLA VAMSHI KRISHNA",9133853259],[50,"DATRIKA THANISHHKA",9490358322],[51,"DEVASOTH SANGEETHA",8247219319],[52,"DEVI CHARISHMA BATTU",9848285176],[53,"DHARAVATH SHANKAR",9502856759],[54,"DINESH KUMAR TEJAVATH",8121722004],[55,"DODDA NAGA KAPIL",9848609850],[56,"DODDE PRANAVA SAI",9391465984],[57,"DODLA ANJALI",7989273048],[58,"DOKIPARTHI JATIN RAKSHIT",9550438843],[59,"DONTHAMALLA SAI KIRAN",8328599209],[60,"DONTHULA MALYADHARSHITHA",7780109956],[61,"DUDAM SWATHI",9441369221],[62,"DUDEKULA NARENDRA",9390829559],[63,"DURGAM SNEHA",8143160495],[64,"EESAM MEGHANA",9182979388],[65,"EZAZ AHMED",9142368932.00],[66,"FARHEEN MOHAMMED HASHMATH",9700748656],[67,"GADDAM SAMYUKTHA",9247226418],[68,"GADI AKSHARA",8501922222],[69,"GAJELLI SAIVIGNESHWAR",7702619831],[70,"GANAMONISONY",7702020545],[71,"GANNARAPU SUGANDH",8790188904],[72,"GANTA SRAVAN REDDY",9849266968],[73,"GANTOLU SHOBHA",9866240638],[74,"GARIGE SATHVIKA",7032713315],[75,"GOLLA PAVAN",9848051679],[76,"GOLLA SAI RAM",9440027850],[77,"GOLLAPALLI MANOHAR",9959468354],[78,"GONEPALLY AKSHAYA",9347730982],[79,"GOPU NAMITHA",9849967172],[80,"GORIGE SHASHANK",7780519690],[81,"GOVERDHANAM VAISSHNAVI",9948440504],[82,"GOVINDULA YASHASWINI",9848220917],[83,"GUGLAVATH SATHWIKA",9666567636],[84,"GUGULOTH SAIKIRAN",7794976293],[85,"GUMMADI SAI NINAD",9849858537],[86,"GUNTUPALLI DEEPTHI",7396412237],[87,"GURRAM KARTHIKA CHOWDARY",9441143710],[88,"GURRAM NEETHI AROMA",8520081193],[89,"HANIA BEGUM",9100566146],[90,"HARMANDEEP KAUR",8708740162],[91,"HEMANTH YASHWANTH MEHTHA",9032223401],[92,"JAMULA TANU SREE PATRA",9701420067],[93,"JANAKI RAM JARPULA",8008288071],[94,"JANGAM PRADYUMNA",9493123811],[95,"JARPULAVATH RAJESH",8464868294],[96,"JOHN CHRISTOPHER AMITHA RAJ",8309954591],[97,"JONNALAGADDA BINDU LAHARI CHOUDARY",9959117224],[98,"JORIGALA AKHILA LAXMI",6302094452],[99,"JUTTU MEGHANA",8096481333],[100,"K CHARAN RAJ",8179075611],[101,"KADUGAYA SURYA VAMSHEE",9246283363],[102,"KALUMARGU MANISHA",6305954036],[103,"KANCHARLA HEMANTH MUKTESWAR RAO",9100166415],[104,"KANDULA SHIVASAI",7386037267],[105,"KANKANALA SAI YASHWANTH",9502365321],[106,"KANUKUNTLA MADHURI",9133501630],[107,"KARANI KHYATHI",9704593994],[108,"KARNEKOTA NITHIN KUMAR",9985480993],[109,"KARRE AKARSH",8317525703],[110,"KARTHIK PANIMUKLA",6304550684],[111,"KARUTURI GOPI PRIYA",9391193608],[112,"KASA HARSHINI",9392845240],[113,"KATHI GRACE",9666412163],[114,"KATKAM SACHIN CHANDRA",7032137311],[115,"KAVIKONDALA AHI KRISHNA",9491144151],[116,"KEMISETTI PRUTHVI KARTHIK",9849050100],[117,"KETHAVATH BHAVIKA",9490138238],[118,"KODIGUTI RISHI",9885586524],[119,"KOKKERIKAR KUSHALA",9989597311],[120,"KOLA SHIVA",9948826104],[121,"KOLLISRUJANA",8985680680],[122,"KOMMU EVITA MARY JONES",9494800101],[123,"KOMMU MITHUN TEJA",9908632172],[124,"KOPPULA MAHENDER REDDY",6281890944],[125,"KORRA AKHIL BHRAMAREE NATH",9490056874],[126,"KORRA NIKHITHA",9441366507],[127,"KOTHAPALLY REENA JASMINE",9182599799],[128,"KUKUNOORU SARIKA REDDY",9849921988],[129,"KULDEEP PAVAN CHAKRI BATTULA",9535802798],[130,"KURAPATI BHAVYA",9849408090],[131,"KURUVA SHARITHA",9951133680],[132,"LAKSHYA SHANKAR",9299158270],[133,"M D NAHID RAZA ",7488436932.00],[134,"MACHA BINITH VENKATA SAI",9848270596],[135,"MADANA DHRITHI",8186876833],[136,"MADE RISHI JNANA SREE",9347805244],[137,"MAJIDA FATIMA",9247506993],[138,"MALAVATH PAVAN RAJ",6301121421],[139,"MALOVATHU RADHA KRISHNA PRASAD",7337419565],[140,"MAMIDALA RISHITHA",9000009760],[141,"MAMIDIPALLY VINAY",9701671810],[142,"MANGALI NAVYA",9133551916],[143,"MATU PORA",8247825107],[144,"MEGAVATH VAMSIDHAR NAIK",9490298707],[145,"MEHVISH MOHD ABRAR",9869840375],[146,"MEKALA CHAITHANYA",9676260207],[147,"MIZAN HASAN",8949368010],[148,"MODEM PAPANNAGARI ANJALI",9492034730],[149,"MOHAMMED ASHRAF TAHER KHAN",7013546750],[150,"MOHAMMED OMER FAROOQ",9440296330],[151,"MOHAMMED TALHA ULLAH SHAREEF",9032867116],[152,"MOHD ABBAS",9154175532],[153,"MOHD HASEEB UR RAHMAN",8125212549],[154,"MOHD HUZAIFA",8429268803],[155,"MOVVA KEERTHI",9391160219],[156,"MUDAVATH DIVYASRI",8106888209],[157,"MUHAMMAD ZULQAR NAYN",9372202013],[158,"MUKESH MANDA",7340144485.00],[159,"MUKLOTH PRANATHI",9603233682],[160,"MULINTI SUDHEER KUMAR REDDY",9381541399],[161,"MURALI KRISHNA JAMPALWAR",8919886936],[162,"MUSTYALA BHAVANA",9441706729],[163,"N AMARESHWARI",9398685446],[164,"NAGUBANDI SREE SRESHTA",9490333249],[165,"NAGURU RAHUL SAI REDDY",9848144460],[166,"NAKKA AISHWARYA",7780600207],[167,"NAMANI RINDHA",9666672648],[168,"NARENDHAR NAIK P",8465065075],[169,"NEELAGIRI SIRI",9154826362],[170,"NEHA TAMREEN",8074906714],[171,"NUSRAT ALI",6396906860],[172,"PABBA ASHRITHA",6309346622],[173,"PADALA SHRUTI",9951387456],[174,"PAGE VENKATESH",8367705128],[175,"PALLE SRIPADA VALLABH REDDY",7981632942],[176,"PAMUNUGULLA SAI KUMAR",9505535193],[177,"PANDIKALA VIGNAN",9441104983],[178,"PANJALA KALYAN",9849673234],[179,"PANTHAM VISHNU PRIYA",9848123985],[180,"PARA SREE SAI DEVA HARSHA",7893710969],[181,"PASUNURI SATHWIKH",9515102168],[182,"PEDDUPPARA ANUDEEP",8660160693],[183,"PENDRA VINAY",8096523158],[184,"PINREDDY SHYAM SUNDAR REDDY",9704198917],[185,"PITCHUKA SAI GEETHIKA",9704066651],[186,"PITTA SAHARSH",9949890506],[187,"PITTA TANUSHA",9666954053],[188,"POCHAMPALLY SHAARVANI",9059964207],[189,"POGAKU SAI TEJA",9347252344],[190,"POGIRA SIREE",9848087074],[191,"POLOJU SAHITHI PRIYA",8106513212],[192,"PUPPALA TEJASWI",8367615439],[193,"R RAJ KUMAR",9347975711],[194,"RACHAMALLA SNEHA LATHA",8919244976],[195,"RAGHVENDER SINGH",7239824740.00],[196,"RAHEEMA SHABNAM",8050204748],[197,"RAMANCHARLA DINESH KUMAR",9392789671],[198,"RAMASWAMY AISHWARYA",8639034987],[199,"RAMAVATH KARTHIK NAIK",9849182928],[200,"RAMAVATH MADHAN",9381168328],[201,"RAMSHA WASIQ KHAN",7247673681],[202,"RANGAM SAMPATH",9959433307],[203,"RASURI RISHI TEJ",7075936692],[204,"RATHOD PARASHURAM",9347147622],[205,"RAYALA SREE HARSHA VARDHAN",9912603699],[206,"REZWAN ABDUL MAJEED AZMI",9121067729],[207,"SAI AASHRITHA REDDY HARDHAGERI",8197177688],[208,"SAI ASHWITHA YATHIPATHI",9573001543],[209,"SAMA SAI SNIGDHA",9346485928],[210,"SATHVIKA CHERKU",9059058748],[211,"SEELAM HARA VENKATESH",7731828278],[212,"SHADASYA BUDATI",9440284998],[213,"SHAIK HASHMA SHIRIN",9620888845],[214,"SHAIK INSHA FEROZ",8261040456],[215,"SHAIK NUZUHATH NEHA",9676924801],[216,"SHAIK OWAIS",7013716194],[217,"SHARANYA REDDY GANGIREDDY",9642559475],[218,"SHRIYA DATTA NARAYANAM",9849464278],[219,"SIDDHARTH VARMA PINNAMARAJU",9866892923],[220,"SILIVERY PRAVEEN TEJ",9440747807],[221,"SIRASANI PREETHI",9550405204],[222,"SIVAKOTI PRAVEEN CHANDRA",8977121073],[223,"SUKKALA HARI CHARAN",7981186007],[224,"SURARAM SAMPATH KUMAR",9391084722],[225,"SURINENI SAI VARSHINI",8121721996],[226,"SURUGURU SHRAVANI",9440094776],[227,"SYED HAMZA HASHMI",9505888875],[228,"SYEDA KASHIFA ZAIDI",8465877386],[229,"TAHOORA FATIMA",9848060398],[230,"TANISHQ VASHISHT",8587919312.00],[231,"TARRA INDUMATHI",7675995254],[232,"THIRUPATHIREDDY RAM KUMAR REDDY",9100196642],[233,"THUMMALA V SUBHASH CHANDRA",7386350200],[234,"TIPPANI TEJA",9392552196],[235,"VADDI PREETI PRATYUSHA",9000481666],[236,"VADLAPALLI PRASASTHA DEV",9010586300],[237,"VAISHALI GUPTA",8555056754],[238,"VALLANDAS SIRI VARSHINI",9490156767],[239,"VALLURU BHANU",9121941503],[240,"VANKUDOTHU UMAMAHESWARI",7993297041],[241,"VASA NITHYA SREE",7386608696],[242,"VEMULA PRANAY",8143162001],[243,"VENGAPAKA GEETHIKA",7893758568],[244,"VENKATA HEMA SRIVALLI VAISHNAVI PRATAPA",9989490060],[245,"VENNA SHAILAJA",6304965069],[246,"YASH BIYANI",9325339930],[247,"YELLASIRI PHEBE PREETHIKA",9502835800],[248,"YENUMALA SHALINI",7731989397],[249,"YERRAGINNELA AKHILESHWARI",9440958993],[250,"ZADDA RAHUL W C BERNARD",9441686530]];
+
+var rollnoc, prel=[], absl=[], copl=[], xhttp, msgid, msgidg, msgidl, etrc, studcon, arrol, absbox=document.getElementById("absudbox"), prebox=document.getElementById("presudbox");
+var rrrrr='', bps, pv=1, nt=42, i=1, j=1, tmparr, rollary=[];
+var attboxtbsf='<table class="main" onclick="onclk(event);"><thead><tr><td>Roll No:</td><td>Button</td></tr></thead><tbody id="attboxtb', attboxtbss='"></tbody></table>', attboxtr1='<tr class="each"><td class="rn" onclick="info(this.innerText);">', attboxtr2='</td><td class="pa" rollno=', attboxtr3=' id="attcon', attboxtr4='"><div class="pre"></div><div class="abs"></div></td></tr>', apb1='<div class="flexc"><div class="apb" onclick="info(this.innerText)">', apb2='</div><div class="apbab" id="apbstu', apb3='</div><div class="apbpr" id="apbstu', apb4='"></div></div>';
+//var 
+
+
+function loaded(){
+    //__github.io/____#juuuuuuuuuuuuuuuuuuu
+   var urlhsha = (window.location.href.split("?"));
+   var urlhsh = urlhsha[1].split("sss");
+   document.getElementById("bodya").style.display="block";
+   var lv = urlhsh[1].split("s");
+   arrol=[];
+   studcon=0;
+if(lv.includes("a1")){
+arrol.push(1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32);
+studcon+=32;
+}
+if(lv.includes("a2")){
+arrol.push(33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63);
+studcon+=31;
+}
+if(lv.includes("b1")){
+arrol.push(64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83,84,85,86,87,88,89,90,91,92,93,94,95);
+studcon+=32;
+}
+if(lv.includes("b2")){
+arrol.push(96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111,112,113,114,115,116,117,118,119,120,121,122,123,124,125);
+studcon+=30;
+}
+if(lv.includes("c1")){
+arrol.push(126,127,128,129,130,131,132,133,134,135,136,137,138,139,140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158);
+studcon+=33;
+}
+if(lv.includes("c2")){
+arrol.push(159,160,161,162,163,164,165,166,167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188);
+studcon+=30;
+}
+if(lv.includes("d1")){
+arrol.push(189,190,191,192,193,194,195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,220);
+studcon+=32;
+}
+if(lv.includes("d2")){
+arrol.push(221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,238,239,240,241,242,243,244,245,246,247,248,249,250);
+studcon+=30;
+}
+   var xhttp = new XMLHttpRequest();
+   xhttp.onreadystatechange = function(){if (this.readyState == 4 && this.status == 200) {
+   var resp = xhttp.responseText;
+   resp = resp.replace("[", "");
+   resp = resp.replace("]", "");
+   resp = resp.replace('"', "");
+   var acpl = resp.split(",");
+   var i=0, item;
+   prebox.innerHTML='';
+   absbox.innerHTML='';
+   for (items of acpl){
+      item=arrol[i];
+      if(items=='A'){
+	    absbox.innerHTML+=apb1+item+apb3+item+apb4;
+	  }else if(items=='P'){
+	    prebox.innerHTML+=apb1+item+apb2+item+apb4;
+	  }
+	  i++;
+   }
+   }};
+   xhttp.open("GET", ('https://fitbeau-5606d.firebaseio.com/room/room'+urlhsh[0]+'/apcl/.json'), true);
+   xhttp.send();
+}
+
+/*
+
+*/
+
+</script>
+</body>
+</html>
