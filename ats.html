@@ -195,23 +195,23 @@ arrol.push(221,222,223,224,225,226,227,228,229,230,231,232,233,234,235,236,237,2
 studcon+=30;
 }
    var xhttp = new XMLHttpRequest();
+   xhttp.responseType = 'json';
    xhttp.onreadystatechange = function(){if (this.readyState == 4 && this.status == 200) {
-   var resp = xhttp.responseText;
-   resp = resp.replace("[", "");
-   resp = resp.replace("]", "");
-   resp = resp.replace('"', "");
-   var acpl = resp.split(",");
+   var resp = this.response;
+   //resp = resp.replace("[", "");
+   //resp = resp.replace("]", "");
+   //resp = resp.replace('"', "");
+   //var acpl = resp.split(",");
    var i=0, item;
    prebox.innerHTML='';
    absbox.innerHTML='';
-   for (items of acpl){
-      item=arrol[i];
-      if(items=='A'){
-	    absbox.innerHTML+=apb1+item+apb3+item+apb4;
-	  }else if(items=='P'){
-	    prebox.innerHTML+=apb1+item+apb2+item+apb4;
-	  }
-	  i++;
+   for (items in resp){
+	if(resp[items]=='A'){
+	    absbox.innerHTML+=apb1+items+apb3+items+apb4;
+	}else if(resp[items]=='P'){
+	    prebox.innerHTML+=apb1+items+apb2+items+apb4;
+	}
+	i++;
    }
    }};
    xhttp.open("GET", ('https://fitbeau-5606d.firebaseio.com/room/room'+urlhsh[0]+'/apcl/.json'), true);
