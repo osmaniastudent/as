@@ -251,6 +251,7 @@ function sendimg(id){
 	var request = new XMLHttpRequest();
 	request.open('POST', "https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendPhoto?chat_id=-1001310291767");
 	request.send(formData);
+	editgms();
     });
   }canvas.style.width = "100%"; screenshot.innerHTML='';screenshot.appendChild(canvas);});
 }
@@ -268,59 +269,48 @@ function onclk(event) {
 	   if(prel.includes(rollnoc)){
 	       
 	   }else{
-	         prel.push(rollnoc);
-		 prel.sort(function(a, b){return a-b});
-		 pal[copl.indexOf(rollnoc)]="P";
-		 tmpstr='"[';
-		 for(item of pal){tmpstr+=(item+',');}
-		 tmpstr+=']"';
-		 if(absl.includes(rollnoc)){
+	    prel.push(rollnoc);
+		prel.sort(function(a, b){return a-b});
+		pal[copl.indexOf(rollnoc)]="P";
+		if(absl.includes(rollnoc)){
 		   absl.splice(absl.indexOf(rollnoc),1);
 		   event.target.closest(".pre").nextElementSibling.style.border = "5px solid #d6bc14";
 		 }
 		var xhttm = new XMLHttpRequest();
-		xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/.json'), true);
-		xhttm.send(tmpstr);
-		 //fetch(('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/'+copl.indexOf(rollnoc)+'/.json'),{method:'PUT',headers:{ 'Content-Type': 'application/json' },body:'"P"'});
-		 abplch();
-		 document.getElementById("tdap"+rollnoc).innerText="P";
-		 event.target.closest(".pre").style.border = "5px solid lime";
+		xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/'+rollnoc+'/.json'), true);
+		xhttm.send('"P"');
+		abplch();
+		document.getElementById("tdap"+rollnoc).innerText="P";
+		event.target.closest(".pre").style.border = "5px solid lime";
 	   }
     }else if(event.target.closest(".abs") || event.target.closest(".noka")){
        rollnoc = Math.floor(event.target.closest(".pa").getAttribute("rollno"));
 	   if(absl.includes(rollnoc)){
 	       
 	   }else{
-	         absl.push(rollnoc);
-		 absl.sort(function(a, b){return a-b});
-		 pal[copl.indexOf(rollnoc)]="A";
-		 tmpstr='"[';
-		 for(item of pal){tmpstr+=(item+',');}
-		 tmpstr+=']"';
-		 if(prel.includes(rollnoc)){
+	    absl.push(rollnoc);
+		absl.sort(function(a, b){return a-b});
+		pal[copl.indexOf(rollnoc)]="A";
+		if(prel.includes(rollnoc)){
 		   prel.splice(prel.indexOf(rollnoc),1);
 		   prel.sort(function(a, b){return a-b});
 		   event.target.closest(".abs").previousElementSibling.style.border = "5px solid #d6bc14";
-		 }//https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767&text=bye
+		}
 		var xhttm = new XMLHttpRequest();
-		xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/.json'), true);
-		xhttm.send(tmpstr);
-		 //fetch(('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/'+copl.indexOf(rollnoc)+'/.json'),{method:'PUT',headers:{ 'Content-Type': 'application/json' },body:'"A"'});
-		 abplch();
-		 document.getElementById("tdap"+rollnoc).innerText="A";
-		 event.target.closest(".abs").style.border = "5px solid red";
+		xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/'+rollnoc+'/.json'), true);
+		xhttm.send('"A"');
+		abplch();
+		document.getElementById("tdap"+rollnoc).innerText="A";
+		event.target.closest(".abs").style.border = "5px solid red";
 	   }
 	}else if(event.target.closest(".apbab")){
        rollnoc = Math.floor(event.target.closest(".apbab").getAttribute("id").replace('apbstu',''));
 	   if(prel.includes(rollnoc)){
 	       
 	   }else{
-	         prel.push(rollnoc);
+	     prel.push(rollnoc);
 		 prel.sort(function(a, b){return a-b});
 		 pal[copl.indexOf(rollnoc)]="P";
-		 tmpstr='"[';
-		 for(item of pal){tmpstr+=(item+',');}
-		 tmpstr+=']"';
 		document.getElementById("attcon"+rollnoc).getElementsByClassName('pre')[0].style.border='5px solid lime';
 		document.getElementById("attcon"+rollnoc).getElementsByClassName('abs')[0].style.border='5px solid #d6bc14';
 		 if(absl.includes(rollnoc)){
@@ -328,9 +318,8 @@ function onclk(event) {
 		absl.sort(function(a, b){return a-b});
 		 }
 		var xhttm = new XMLHttpRequest();
-		xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/.json'), true);
-		xhttm.send(tmpstr);
-		//fetch(('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/'+copl.indexOf(rollnoc)+'/.json'),{method:'PUT',headers:{ 'Content-Type': 'application/json' },body:'"P"'});
+		xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/'+rollnoc+'/.json'), true);
+		xhttm.send('"P"');
 		abplch();
 		document.getElementById("tdap"+rollnoc).innerText="P";
 	   }
@@ -339,12 +328,9 @@ function onclk(event) {
 	   if(absl.includes(rollnoc)){
 	       
 	   }else{
-	         absl.push(rollnoc);
+	     absl.push(rollnoc);
 		 absl.sort(function(a, b){return a-b});
 		 pal[copl.indexOf(rollnoc)]="A";
-		 tmpstr='"[';
-		 for(item of pal){tmpstr+=(item+',');}
-		 tmpstr+=']"';
 		 document.getElementById("attcon"+rollnoc).getElementsByClassName('abs')[0].style.border='5px solid red';
 		 document.getElementById("attcon"+rollnoc).getElementsByClassName('pre')[0].style.border='5px solid #d6bc14';
 		 if(prel.includes(rollnoc)){
@@ -352,11 +338,10 @@ function onclk(event) {
 		 prel.sort(function(a, b){return a-b});
 		 }
 		var xhttm = new XMLHttpRequest();
-		xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/.json'), true);
-		xhttm.send(tmpstr);
-		 //fetch(('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/'+copl.indexOf(rollnoc)+'/.json'),{method:'PUT',headers:{ 'Content-Type': 'application/json' },body:'"P"'});
-		 abplch();
-		 document.getElementById("tdap"+rollnoc).innerText="A";
+		xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/'+rollnoc+'/.json'), true);
+		xhttm.send('"A"');
+		abplch();
+		document.getElementById("tdap"+rollnoc).innerText="A";
 	   }
 	}
 }
@@ -454,17 +439,18 @@ while(j<lv[2]){
 	j=j+1;
 }
 }
-tmpstr='"[';
-for(item of copl){if(multiadm){tmpstr+='A,';}else{tmpstr+='P,';}}
-tmpstr+=']"';
+tmpstr='{';
+i=0;
+for(item of pal){tmpstr+=('"'+copl[i]+'":"'+item+'",');i++;}
+tmpstr+='}';
 var xhttf = new XMLHttpRequest();
 xhttf.responseType="json";
 xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
 	if(xhttf.response.room1=="no"){setroom=1;}else if(xhttf.response.room2=="no"){setroom=2;}else if(xhttf.response.room3=="no"){setroom=3;}else if(xhttf.response.room4=="no"){setroom=4;}
-	//fetch(('https://fitbeau-5606d.firebaseio.com/room/inuse/room'+setroom+'.json'), {method: 'put',headers: { 'Content-Type': 'application/json' },body: "yes"});
 	var xhttt = new XMLHttpRequest();
 	xhttt.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
 	var xhtto = new XMLHttpRequest();
+	xhtto.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
 	xhtto.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
 	urlfs = "https://allcpu.github.io/atnd/ats.html?"+setroom+"sss"+batches;
 	caption=encodeURI("Subject : "+document.getElementById("subji").value+"  Date : "+new Date().toDateString()+"  Time: "+document.getElementById("strtimpic").value+"-"+document.getElementById("endtimpic").value+"  Batches :"+bstr+" Roll No: "+rollary[0]+"-"+rollary[1]+"  Administered by: "+document.getElementById("facti").value+"\n"+urlfs);
@@ -478,7 +464,7 @@ xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 
 	xtthp.send();
 	}};
 	xhtto.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/.json'), true);
-	xhtto.send(tmpstr);
+	xhtto.send(JSON.stringify(tmpstr));
 	}};
 	xhttt.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/inuse/room'+setroom+'.json'), true);
 	xhttt.send('"yes"');
@@ -540,23 +526,22 @@ function editgms(){
    var tmpstr2='\n🅿️ :';
    var respi = '';
    var xhttpe = new XMLHttpRequest();
+   xhttpe.responseType="json";
    xhttpe.onreadystatechange = function(){if (this.readyState == 4 && this.status == 200) {
-   var respe = xhttpe.responseText;
-   respe = respe.replace('[', "");
-   respe = respe.replace(']', "");
-   respi = respe.replace('"', "");
-   var acpl = respi.split(",");
+   var respe = this.response;
+   //respe = respe.replace('[', "");
+   //respe = respe.replace(']', "");
+   //respi = respe.replace('"', "");
+   //var acpl = respi.split(",");
    var i=0;
-   for (items of acpl){
-	if(acpl[i]=='A'){
+   for (items in respe){
+	if(respe[items]=='A'){
 	   tmpstr1+=(" "+copl[i]+",");
-	}else if(acpl[i]=='P'){
+	}else if(respe[items]=='P'){
 	   tmpstr2+=(" "+copl[i]+",");
 	}
 	i++;
    }
-   tmpstr1.replace(/.$/,".");
-   tmpstr2.replace(/.$/,".");
    var xhttps = new XMLHttpRequest();
    xhttps.open("GET", ('https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/editMessageText?chat_id=-1001310291767&message_id='+msgid+'&text='+encodeURI(tmpstr1+tmpstr2)), true);
    xhttps.send();
@@ -567,20 +552,21 @@ function editgms(){
 function refreshl(){
    var respi = '';
    var xhttpe = new XMLHttpRequest();
+   xhttpe.responseType = 'json';
    xhttpe.onreadystatechange = function(){if (this.readyState == 4 && this.status == 200) {
-   var respe = xhttpe.responseText;
-   respe = respe.replace('[', "");
-   respe = respe.replace(']', "");
-   respi = respe.replace('"', "");
-   var acpl = respi.split(",");
+   var respe = this.response;
+   //respe = respe.replace('[', "");
+   //respe = respe.replace(']', "");
+   //respi = respe.replace('"', "");
+   //var acpl = respi.split(",");
    var i=0;
-   for (items of acpl){
-	if(acpl[i]=='A'){
+   for (items in respe){
+	if(respe[items]=='A'){
 		absl.push(i);
 		pal[i]="A";
 		document.getElementById("attcon"+copl[i]).getElementsByClassName('pre')[0].style.border='5px solid #d6bc14';
 		document.getElementById("attcon"+copl[i]).getElementsByClassName('abs')[0].style.border='5px solid red';
-	}else if(acpl[i]=='P'){
+	}else if(respe[items]=='P'){
 		prel.push(i);
 		pal[i]="P";
 		document.getElementById("attcon"+copl[i]).getElementsByClassName('pre')[0].style.border='5px solid lime';
@@ -597,7 +583,6 @@ function endatts(){
   var xhttm = new XMLHttpRequest();
   xhttm.onreadystatechange = function(){if (this.readyState == 4 && this.status == 200) {
   editgms();
-  //fetch(('https://fitbeau-5606d.firebaseio.com/room/inuse/room'+setroom+'.json'), {method: 'put',headers: { 'Content-Type': 'application/json' },body: "no"});
   }};
   xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/inuse/room'+setroom+'.json'), true);
   xhttm.send('"no"');
