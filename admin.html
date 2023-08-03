@@ -462,10 +462,10 @@ xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 
 	xtthp.open("GET", ("https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767&text="+caption), true);
 	xtthp.send();
 	}};
-	xhtto.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/.json'), true);
+	xhtto.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl.json'), true);
 	xhtto.setRequestHeader("Content-Type", "application/json");
 	//xhtto.send(tmpstr);
-	console.log(JSON.stringify(tmpstr));
+	//console.log(JSON.stringify(tmpstr));
 	xhtto.send(tmpstr);
 	}};
 	xhttt.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/inuse/room'+setroom+'.json'), true);
