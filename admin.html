@@ -27,14 +27,6 @@
     flex-direction: row;
     column-gap: 5px;
 }
-.name{
-  border-right: 2px solid black;
-  border-left: 2px solid black;
-  text-align: center;
-  height:100%;
-  margin:auto;
-
-}
 .rnb{
     display: flex;
     flex-direction: row;
@@ -92,18 +84,6 @@ tr{
 }
 table{
     border-spacing: 0px;
-}
-.preb{
-  background-size: cover;
-  background-image: url('p.png');
-  width: 20px;
-  height: 32px;
-}
-.absb{
-  background-size: cover;
-  background-image: url('a.png');
-  width: 20px;
-  height: 32px;
 }
 .flex{
   display: flex;
@@ -167,8 +147,9 @@ table{
 
 <label style="font-size:25px;margin:auto;">Enable multiple admins:-&nbsp&nbsp&nbsp&nbsp&nbspYes:<input name="yn" style="width:20px;height:20px;position:relative;top:3px" type="radio" id="mae">&nbsp&nbsp&nbsp&nbsp&nbspNo:<input name="yn" style="width:20px;height:20px;position:relative;top:3px" type="radio" id="mad"></label>
 <button type="button" id="crsbut" style="display:block;width:50%;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;" onclick='swal({title: "Are you sure?",text: "It will start Attendance System",icon: "warning",buttons: true,dangerMode: true,}).then((value) => {if(value){swal({icon: "success",title:"Done",text:"Attendance System Started"});crtsht();}else{swal({title:"Cancelled Process",icon:"info"});}});'>Create Sheet</button>
-<button type="button" style="display:block;width:50%;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;margin-top:5px;" onclick='endatts()'>End Attendance System</button>
+<button type="button" style="display:block;width:50%;background-color:aqua;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;margin-top:5px;" onclick='refreshl()'>Refresh Data</button>
 <button type="button" style="display:block;width:50%;background-color:aqua;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;margin-top:5px;" onclick='sendimg(document.getElementById("finallook"));'>Send Attendance</button>
+<button type="button" style="display:block;width:50%;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;margin-top:5px;" onclick='endatts()'>End Attendance System</button>
 </div>
 <div id="help" style="display:none;">
 <div id="info"></div>
@@ -399,7 +380,7 @@ batches+='d2s';
 if(lv.includes("many")){
 j=1;
 i=1;
-etrc = Math.ceil(studcon/(Math.floor(document.body.offsetWidth/160)));
+etrc = Math.ceil(studcon/(Math.floor((document.body.offsetWidth-40)/160)));
 for(sbar of arrol){
 document.getElementById("attsht").innerHTML += '<table class="main" ><thead><tr class="" style="background:silver;"><td class="imgtr">Rno</td></td><td class="imgta">?</td></tr></thead><tbody id="attentab'+i+'"></tbody></table>';
 for(item of sbar){
