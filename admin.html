@@ -465,7 +465,7 @@ xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 
 	xhtto.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/.json'), true);
 	xhtto.setRequestHeader("Content-Type", "application/json");
 	//xhtto.send(tmpstr);
-	console.log(tmpstr);
+	console.log(JSON.stringify(tmpstr));
 	xhtto.send(tmpstr);
 	}};
 	xhttt.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/inuse/room'+setroom+'.json'), true);
