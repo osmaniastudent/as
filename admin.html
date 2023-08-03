@@ -46,15 +46,15 @@
   border: 5px solid red;
 }
 .noka{
-  width:36px;
-  height:36px;
+  width:45px;
+  height:45px;
   background:url('abs.png');
   background-size:contain;
   border: 5px solid #d6bc14;
 }
 .nokp{
-  width:36px;
-  height:36px;
+  width:45px;
+  height:45px;
   background:url('pre.png');
   background-size:contain;
   border: 5px solid #d6bc14;
@@ -553,12 +553,12 @@ function refreshl(){
    var i=0;
    for (items in respe){
 	if(respe[items]=='A'){
-		absl.push(i);
+		absl.push(Math.floor(items));
 		pal[i]="A";
 		document.getElementById("attcon"+copl[i]).getElementsByClassName('pre')[0].style.border='5px solid #d6bc14';
 		document.getElementById("attcon"+copl[i]).getElementsByClassName('abs')[0].style.border='5px solid red';
 	}else if(respe[items]=='P'){
-		prel.push(i);
+		prel.push(Math.floor(items));
 		pal[i]="P";
 		document.getElementById("attcon"+copl[i]).getElementsByClassName('pre')[0].style.border='5px solid lime';
 		document.getElementById("attcon"+copl[i]).getElementsByClassName('abs')[0].style.border='5px solid #d6bc14';
