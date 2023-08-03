@@ -46,7 +46,7 @@
   background-size:contain;
   border: 5px solid #d6bc14;
 }
-.abs{
+.{
   width:36px;
   height:36px;
   background:url('abs.png');
@@ -110,8 +110,8 @@ table{
     height: 20px;
 }
 .apb{min-width:61px;min-height:25px;border-right:2px solid black;background-color:seashell;width:fit-content;text-align:center;padding:4px;font-size:30px;font-family: monospace;}
-.apbab{width:36px;height:36px;background:url('abs.png');background-size:contain;border:5px solid #d6bc14;}
-.apbpr{width:36px;height:36px;background:url('pre.png');background-size:contain;border:5px solid #d6bc14;}
+.apbab{width:45px;height:45px;background:url('abs.png');background-size:contain;border:5px solid #d6bc14;}
+.apbpr{width:45px;height:45px;background:url('pre.png');background-size:contain;border:5px solid #d6bc14;}
 </style>
 <script src="sam.js"></script>
 </head>
@@ -231,8 +231,8 @@ swal({
 .then(cod => {
   if (cod == coder){
     document.getElementById("bodya").style.display="block";
+    swal("Correct 😄");
     fetap();
-	swal("Correct 😄");
   }else{
 	swal("Incorrect 😞");
   }
