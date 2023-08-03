@@ -18,7 +18,7 @@
   background-color: seashell;
   width: fit-content;
   text-align: center;
-  padding: 4px;
+  padding: 2px;
   font-size: 30;
   font-family: monospace;
 }
@@ -32,15 +32,15 @@
     flex-direction: row;
 }
 .pre{
-  width:36px;
-  height:36px;
+  width:45px;
+  height:45px;
   background:url('pre.png');
   background-size:contain;
   border: 5px solid lime;
 }
 .abs{
-  width:36px;
-  height:36px;
+  width:45px;
+  height:45px;
   background:url('abs.png');
   background-size:contain;
   border: 5px solid red;
@@ -104,8 +104,8 @@ table{
     height: 20px;
 }
 .apb{min-width:61px;min-height:25px;border-right:2px solid black;background-color:seashell;width:fit-content;text-align:center;padding:4px;font-size:30px;font-family: monospace;}
-.apbab{width:36px;height:36px;background:url('abs.png');background-size:contain;border:5px solid #d6bc14;}
-.apbpr{width:36px;height:36px;background:url('pre.png');background-size:contain;border:5px solid #d6bc14;}
+.apbab{width:45px;height:45px;background:url('abs.png');background-size:contain;border:5px solid #d6bc14;}
+.apbpr{width:45px;height:45px;background:url('pre.png');background-size:contain;border:5px solid #d6bc14;}
 </style>
 <script src="h2c.js"></script>
 <script src="jm.js"></script>
@@ -380,7 +380,7 @@ batches+='d2s';
 if(lv.includes("many")){
 j=1;
 i=1;
-etrc = Math.ceil(studcon/(Math.floor((document.body.offsetWidth-40)/160)));
+etrc = Math.ceil(studcon/(Math.floor((document.body.offsetWidth-40)/180)));
 for(sbar of arrol){
 document.getElementById("attsht").innerHTML += '<table class="main" ><thead><tr class="" style="background:silver;"><td class="imgtr">Rno</td></td><td class="imgta">?</td></tr></thead><tbody id="attentab'+i+'"></tbody></table>';
 for(item of sbar){
@@ -458,7 +458,7 @@ xhttf.send();
 //drawatt(["many","a1","b1","c1"]);
 
 function remain(){
-var coda = Math.random()*(200) + 100;
+var coda = Math.floor(Math.random(8)*(100)) + 100;
 document.getElementById("kode").innerText=coda;
 var admurl = "https://osmaniastudent.github.io/as/admin2.html?"+setroom+"zzz"+(coda*77)+"zzz"+(batches.replace("s","x"));
 var xhttu = new XMLHttpRequest();
