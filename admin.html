@@ -442,7 +442,7 @@ while(j<lv[2]){
 tmpstr='{';
 i=0;
 for(item of pal){tmpstr+=('"'+copl[i]+'":"'+item+'",');i++;}
-tmpstr+='}';
+tmpstr+='"tmp":"c"}';
 var xhttf = new XMLHttpRequest();
 xhttf.responseType="json";
 xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
