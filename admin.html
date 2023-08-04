@@ -186,7 +186,7 @@ table{
 </div>
 <div style="height:960px;width:1048px;display:flex;align-self:end;margin-bottom:15px;justify-content:space-around;" id="">
 <div style="height:960px;width:1048px;display:flex;align-self:end;margin-bottom:15px;justify-content:space-around;" id="attsht"></div>
-<div style="position:absolute;background:url(1.png);background-repeat:no-repeat;background-size:100% 100%;width: 960px;height: 960px;opacity: 7%;"></div>
+<div style="position:absolute;background:url(1.png);background-repeat:no-repeat;background-size:100% 100%;width: 960px;height: 960px;opacity: 15%;"></div>
 </div>
 </div>
 <div style="height:1376px;width:1048px;" id="screenshot"></div>
@@ -580,7 +580,12 @@ function endatts(){
   xhttm.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/inuse/room'+setroom+'.json'), true);
   xhttm.send('"no"');
 }
-addEventListener("beforeunload", endatts);
+function unld(e){
+	e.preventDefault();
+	endatts();
+	swal("Please complete the attendance");
+}
+addEventListener("beforeunload", unld);
 
 function chngsht(){
 	urlfs = "https://osmaniastudent.github.io/as/ats.html?"+setroom+"sss"+batches;
