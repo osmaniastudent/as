@@ -222,15 +222,16 @@ function fetap(){
    var i=0, item;
    prebox.innerHTML='';
    absbox.innerHTML='';
-   for (items of acpl){
+   for (items in resp){
       if(resp[items]=='A'){
 	    absbox.innerHTML+=apb1+items+apb3+items+apb4;
 	    absl.push(Math.floor(items));
+            copl.push(Math.floor(items));
       }else if(resp[items]=='P'){
 	    prebox.innerHTML+=apb1+items+apb2+items+apb4;
 	    prel.push(Math.floor(items));
+            copl.push(Math.floor(items));
       }
-      copl.push(Math.floor(items));
       i++;
    }
    }};
@@ -284,7 +285,7 @@ function onclk(event){
 }
 	
 function info(rn){
-  //swal({title:(rn+" is:"),icon:"info",text:(arr[Number(rn)][1])});
+  swal({title:(rn+" is:"),icon:"info",text:(arr[Number(rn)][1])});
 }
 /*
 
