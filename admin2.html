@@ -247,7 +247,9 @@ function abplch(){
 }
 
 function onclkb(ele){
+    console.log(ele);
     if(ele.classList.contains(".apbpr")){
+           console.log(ele.classList.contains(".apbpr"));
            rollnoc = Math.floor(ele.getAttribute("id").replace('apbstu',''));
 	   if(prel.includes(rollnoc)){
 	       
@@ -265,6 +267,7 @@ function onclkb(ele){
 		abplch();
 	   }
 	}else if(ele.classList.contains(".apbab")){
+	    console.log(ele.classList.contains(".apbpr"));
            rollnoc = Math.floor(ele.getAttribute("id").replace('apbstu',''));
 	   if(absl.includes(rollnoc)){
 	       
