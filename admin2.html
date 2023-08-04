@@ -242,14 +242,14 @@ function fetap(){
 function abplch(){
    absbox.innerHTML='';
    prebox.innerHTML='';
-   for(item of absl){absbox.innerHTML+=apb1+item+apb2+item+apb4;}
-   for(item of prel){prebox.innerHTML+=apb1+item+apb3+item+apb4;}
+   for(item of absl){absbox.innerHTML+=apb1+item+apb3+item+apb4;}
+   for(item of prel){prebox.innerHTML+=apb1+item+apb2+item+apb4;}
 }
 
 function onclkb(ele){
-    console.log(ele);
+    
     if(ele.classList.contains("apbpr")){
-           console.log(ele.classList.contains("apbpr"));
+           
            rollnoc = Math.floor(ele.getAttribute("id").replace('apbstu',''));
 	   if(prel.includes(rollnoc)){
 	       
@@ -267,7 +267,7 @@ function onclkb(ele){
 		abplch();
 	   }
 	}else if(ele.classList.contains("apbab")){
-	    console.log(ele.classList.contains("apbpr"));
+	    
            rollnoc = Math.floor(ele.getAttribute("id").replace('apbstu',''));
 	   if(absl.includes(rollnoc)){
 	       
