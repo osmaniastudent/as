@@ -127,13 +127,13 @@ table{
 <div id="atctrl">
 <div style="border:solid 2px black;margin-top:10px;">
 <div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('absudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('absudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Absent Students</div>
-<div class="flex" id="absudbox" onclick="onclkb()" style="flex-wrap:wrap;">
+<div class="flex" id="absudbox" onclick="onclkb(event)" style="flex-wrap:wrap;">
 </div>
 </div>
 
 <div style="border:solid 2px black;margin-top:10px;">
 <div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('presudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('presudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Present Students</div>
-<div class="flex" id="presudbox" onclick="onclkb()" style="flex-wrap:wrap;">
+<div class="flex" id="presudbox" onclick="onclkb(event)" style="flex-wrap:wrap;">
 </div>
 </div>
 </div>
@@ -201,10 +201,10 @@ swal({
 .then(cod => {
   if (cod == coder){
     document.getElementById("bodya").style.display="block";
-    swal("Correct 😄");
+    swal("Correct");
     fetap();
   }else{
-	swal("Incorrect 😞");
+	swal("Incorrect");
   }
 })
 }
@@ -265,7 +265,7 @@ function onclkb(event){
 		abplch();
 	   }
 	}else if(event.target.closest(".apbpr")){
-       rollnoc = Math.floor(event.target.closest(".apbpr").getAttribute("id").replace('apbstu',''));
+           rollnoc = Math.floor(event.target.closest(".apbpr").getAttribute("id").replace('apbstu',''));
 	   if(absl.includes(rollnoc)){
 	       
 	   }else{
