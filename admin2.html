@@ -127,13 +127,13 @@ table{
 <div id="atctrl">
 <div style="border:solid 2px black;margin-top:10px;">
 <div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('absudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('absudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Absent Students</div>
-<div class="flex" id="absudbox" onclick="onclk(event);" style="flex-wrap:wrap;">
+<div class="flex" id="absudbox" onclick="onclkb()" style="flex-wrap:wrap;">
 </div>
 </div>
 
 <div style="border:solid 2px black;margin-top:10px;">
 <div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('presudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('presudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Present Students</div>
-<div class="flex" id="presudbox" onclick="onclk(event);" style="flex-wrap:wrap;">
+<div class="flex" id="presudbox" onclick="onclkb()" style="flex-wrap:wrap;">
 </div>
 </div>
 </div>
@@ -145,7 +145,7 @@ var arr = [[],[1,"AADHIGONDA PUNEETH",8121335450],[2,"AASHRITHA THOUDISETTI",739
 
 var rollnoc, prel=[], absl=[], copl=[], xhttp, msgid, msgidg, msgidl, etrc, studcon, arrol, absbox=document.getElementById("absudbox"), prebox=document.getElementById("presudbox");
 var rrrrr='', bps, pv=1, nt=42, i=1, j=1, tmparr, rollary=[], pal=[], tmpstr, setroom, coder;
-var apb1='<div class="flexc"><div class="apb" onclick="info(this.innerText)">', apb2='</div><div class="apbab" id="apbstu', apb3='"</div><div class="apbpr" id="apbstu', apb4='"></div></div>';
+var apb1='<div class="flexc"><div class="apb" onclick="info(this.innerText)">', apb2='</div><div class="apbab" id="apbstu', apb3='</div><div class="apbpr" id="apbstu', apb4='"></div></div>';
 var lv;
 
 function loaded(){
@@ -246,9 +246,9 @@ function abplch(){
    for(item of prel){prebox.innerHTML+=apb1+item+apb3+item+apb4;}
 }
 
-function onclk(event){
+function onclkb(event){
     if(event.target.closest(".apbab")){
-       rollnoc = Math.floor(event.target.closest(".apbab").getAttribute("id").replace('apbstu',''));
+           rollnoc = Math.floor(event.target.closest(".apbab").getAttribute("id").replace('apbstu',''));
 	   if(prel.includes(rollnoc)){
 	       
 	   }else{
