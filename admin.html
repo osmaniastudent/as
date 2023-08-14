@@ -220,7 +220,7 @@ var rrrrr='', bps, pv=1, nt=42, i=1, j=1, tmparr, setroom, rollary=[], pal=[];
 var attboxtbsf='<table class="main" onclick="onclk(event);"><thead><tr><td>Roll No:</td><td>Button</td></tr></thead><tbody id="attboxtb', attboxtbss='"></tbody></table>', attboxtr1='<tr class="each"><td class="rn" onclick="info(this.innerText);">', attboxtr2='</td><td class="pa" rollno=', attboxtr3=' id="attcon', attboxtr4='"><div class="pre"></div><div class="noka abs"></div></td></tr>', attboxtr5='"><div class="nokp pre"></div><div class="abs"></div></td></tr>', apb1='<div class="flexc"><div class="apb" onclick="info(this.innerText)">', apb2='</div><div class="apbab" id="apbstu', apb3='</div><div class="apbpr" id="apbstu', apb4='"></div></div>';
 var multiadm=false, msguif='';
 
-
+https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767
 function sendimg(id){
   html2canvas(id, {
     allowTaint: true,
@@ -230,7 +230,7 @@ function sendimg(id){
   if (canvas) {
     canvas.toBlob(function (blob){var formData = new FormData();formData.append('photo', blob);formData.append('caption', "Sheet");
 	var reque = new XMLHttpRequest();
-	reque.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
+	   reque.onreadystatechange = function(){ console.log(this.response);if(this.readyState == 4 && this.status == 200){
 	    canvas.style.width = "100%"; screenshot.innerHTML='';screenshot.appendChild(canvas);
 	    editgms();
 	   }
