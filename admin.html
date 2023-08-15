@@ -221,22 +221,24 @@ var attboxtbsf='<table class="main" onclick="onclk(event);"><thead><tr><td>Roll 
 var multiadm=false, msguif='';
 
 https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767
-function sendimg(id){
-  html2canvas(id, {
+function sendimg(idoe){
+  html2canvas(idoe, {
     allowTaint: true,
     taintTest: false,
     type: "view",
   }).then(function (canvas) {
   if (canvas) {
     canvas.toBlob(function (blob){var formData = new FormData();formData.append('photo', blob);formData.append('caption', "Sheet");
-	var reque = new XMLHttpRequest();
-	   reque.onreadystatechange = function(){ console.log(this.response);if(this.readyState == 4 && this.status == 200){
-	    canvas.style.width = "100%"; screenshot.innerHTML='';screenshot.appendChild(canvas);
-	    editgms();
-	   }
-	   reque.open('POST', "https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendPhoto?chat_id=-1001310291767");
+	   var reque = new XMLHttpRequest();
+	   reque.onreadystatechange = function(){
+	      console.log(reque);
+		  if(this.readyState == 4 && this.status == 200){
+     		  canvas.style.width = "100%"; screenshot.innerHTML='';screenshot.appendChild(canvas);
+			  editgms();
+	      }
+	   reque.open("POST", "https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendPhoto?chat_id=-1001310291767");
 	   reque.send(formData);
-    }},"image/jpeg");
+    }},"image/jpeg",1);
     }
   });
 }
