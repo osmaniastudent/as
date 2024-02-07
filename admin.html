@@ -381,9 +381,9 @@ tmparr=[];
 rollary=[0,0];
 tmparr.push("many");
 tmpstr='';
-if(document.getElementById("ca1").checked){tmparr.push("A");rollary[0]=1;rollary[1]=83;tmpstr+='-A';}
-if(document.getElementById("ca2").checked){tmparr.push("B");if(rollary[0]==0){rollary[0]=84;}rollary[1]=166;tmpstr+='-B';}
-if(document.getElementById("cb1").checked){tmparr.push("C");if(rollary[0]==0){rollary[0]=167;}rollary[1]=235;tmpstr+='-C';}
+if(document.getElementById("bata").checked){tmparr.push("A");rollary[0]=1;rollary[1]=83;tmpstr+='-A';}
+if(document.getElementById("batb").checked){tmparr.push("B");if(rollary[0]==0){rollary[0]=84;}rollary[1]=166;tmpstr+='-B';}
+if(document.getElementById("batc").checked){tmparr.push("C");if(rollary[0]==0){rollary[0]=167;}rollary[1]=235;tmpstr+='-C';}
 bstr=tmpstr;
 document.getElementById("subjfld").innerText="Subject : "+document.getElementById("subji").value;
 document.getElementById("timefld").innerText="Time : "+document.getElementById("strtimpic").value+"-"+document.getElementById("endtimpic").value;
