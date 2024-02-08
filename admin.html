@@ -4,47 +4,6 @@
 .main{
 
 }
-.each{
-    background-color: #d6bc14;
-    width: 100%;
-    align-items: center;
-    border: 2px solid black;
-}
-.rn{
-  min-width: 61px;
-  min-height: 25px;
-  border-right: 2px solid black;
-  border-left: 2px solid black;
-  background-color: seashell;
-  width: fit-content;
-  text-align: center;
-  padding: 2px;
-  font-size: 30;
-  font-family: monospace;
-}
-.pa{
-    display: flex;
-    flex-direction: row;
-    column-gap: 5px;
-}
-.rnb{
-    display: flex;
-    flex-direction: row;
-}
-.pre{
-  width:45px;
-  height:45px;
-  background:url('pre.png');
-  background-size:contain;
-  border: 5px solid lime;
-}
-.abs{
-  width:45px;
-  height:45px;
-  background:url('abs.png');
-  background-size:contain;
-  border: 5px solid red;
-}
 .imgtr{
    min-width:50px;
    max-height:22px;
@@ -58,7 +17,6 @@
    font-family: monospace;
    border: 1px solid black;
 }
-thead{background-color:orange;}
 td{text-align:center;border:1px solid black;}
 tr{border:1px solid black;}
 table{border-spacing: 0px;}
@@ -78,8 +36,13 @@ table{border-spacing: 0px;}
     height: 20px;
 }
 .apb{min-width:61px;min-height:25px;border-right:2px solid black;background-color:seashell;width:fit-content;text-align:center;padding:4px;font-size:30px;font-family: monospace;}
+.flexab{display:flex;border:2px solid black;background:#d6bc14;}
+.flexpr{display:none;border:2px solid black;background:#d6bc14;}
+.apba{min-width:61px;min-height:25px;border-right:2px solid black;background-color:seashell;width:fit-content;text-align:center;padding:4px;font-size:30px;font-family: monospace;}
 .apbab{width:45px;height:45px;background:url('abs.png');background-size:contain;border:5px solid #d6bc14;}
 .apbpr{width:45px;height:45px;background:url('pre.png');background-size:contain;border:5px solid #d6bc14;}
+
+.flexcb{display:none;border:2px solid black;background:#d6bc14;}
 </style>
 <script src="h2c.js"></script>
 <script src="jm.js"></script>
@@ -121,18 +84,18 @@ table{border-spacing: 0px;}
 </div>
 <div id="help" style="display:none;">
 <div id="info"></div>
-<div id="kode" style="width:50%;background-color:aqua;font-size:15px;padding:4px;margin:auto;margin-top:3px;"></div>
+<div id="kode" style="width:50%;background-color:aqua;text-align:center;font-size:15px;border:solid 2px black;padding:4px;margin:auto;margin-top:3px;"></div>
 </div>
 <div id="atctrl">
 <div style="border:solid 2px black;margin-top:10px;">
 <div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('absudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('absudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Absent Students</div>
-<div class="flex" id="absudbox" onclick="onclk(event);" style="flex-wrap:wrap;">
+<div class="flex" id="absudbox" style="flex-wrap:wrap;">
 </div>
 </div>
 
 <div style="border:solid 2px black;margin-top:10px;">
 <div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('presudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('presudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Present Students</div>
-<div class="flex" id="presudbox" onclick="onclk(event);" style="flex-wrap:wrap;">
+<div class="flex" id="presudbox" style="flex-wrap:wrap;">
 </div>
 </div>
 
@@ -141,13 +104,6 @@ table{border-spacing: 0px;}
 <div class="flex" id="chngb" style="flex-wrap:wrap;">
 </div>
 </div>
-
-<div style="border:solid 2px black;margin-top:10px;">
-<div style="display:block;width:auto;border-bottom:none;background-color:aqua;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('attbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('attbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Attendance Control</div>
-<div class="flex" id="attbox" style="display:none;">
-</div>
-</div>
-
 
 <div style="height:1376px;width:1048px;border:1px solid black;font-family:monospace;font-size:20px;margin-top:10px;" id="finallook"  onclick="">
 <div style="height:400px;width:1048px;display:flex;flex-direction:column;justify-content:space-around;">
@@ -168,7 +124,6 @@ table{border-spacing: 0px;}
 </div>
 <div style="display:none;" id="msguifb"></div>
 <div style="display:none;" id="msgidb"></div>
-<div id="tdiv" style="display:none;"></div>
 <button type="button" id="cngshtb" style="display:none;width:50%;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;" onclick='chngsht();'>Change Sheet</button>
 <script>
 //https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767&text=bye
@@ -181,17 +136,16 @@ $('#endtimbut').on('click', function (){
 
 var arr = [], rcl=[];
 var screenshot = document.getElementById("screenshot");
-var resp, rollnoc, prel=[], absl=[], copl=[], pprel=[], pabsl=[], xhttp, msgid, etrc, studcon, arrol;
-var atbe=document.getElementById("attbox"), absbox=document.getElementById("absudbox"), prebox=document.getElementById("presudbox");
-var batches, urlfs, caption, bstr;
+var resp, prel=[], absl=[], copl=[], pprel=[], pabsl=[], xhttp, msgid, etrc, studcon, arrol;
+var absbox=document.getElementById("absudbox"), prebox=document.getElementById("presudbox");
+var caption, bstr;
 var rrrrr='', bps, pv=1, nt=42, i=1, j=1, tmparr, setroom, rollary=[], pal=[];
 
-var attboxtbsf='<table class="main" onclick="onclk(event);"><thead><tr><td>Roll No:</td><td>Button</td></tr></thead><tbody id="attboxtb', attboxtbss='"></tbody></table>';
-var attboxtr1='<tr class="each"><td class="rn">', attboxtr2='</td><td class="pa" rollno=', attboxtr3=' id="attcon', attboxtr4='"><div class="pre"></div><div class="abs"></div></td></tr>', attboxtr5='"><div class="pre"></div><div class="abs"></div></td></tr>';
+var apba='<div class="flexab" id="apbae', apbp='<div class="flexpr" id="apbpe', apb2'"><div class="apb">', apb3='</div><button class="apbab" onclick="clkabs(', apb4='</div><button class="apbpr" onclick="clkpre(', apb5=')"></button></div>';
 
-var apb1='<div class="flexc"><div class="apb">', apb2='</div><div class="apbab" id="apbstu', apb3='</div><div class="apbpr" id="apbstu', apb4='"></div></div>';
+var cba='<div class="flexcb" id="cbae', cbp='<div class="flexcb" id="cbpe', cb2'"><div class="apb">', cb3='</div><div class="apbab"></div></div>', cb4='</div><div class="apbpr"></div></div>';
 
-var cb1='<div class="flexc"><div class="apb" >', cb2='</div><div class="apbab" id="cstu', cb3='</div><div class="apbpr" id="cstu', cb4='" ></div></div>', chngbv=document.getElementById("chngb"), tdiv=document.getElementById("tdiv");
+var attentabstr='', absbstr='', prebstr='', chngbstr='';
 
 var multiadm=true, msguif='';
 
@@ -209,170 +163,41 @@ function crtshtini(){
 swal({title: "Are you sure?",text: "It will start Attendance System",icon: "warning",buttons: true,dangerMode: true,}).then((value) => {if(value){swal({icon: "success",title:"Done",text:"Attendance System Started"});crtsht();}else{swal({title:"Cancelled Process",icon:"info"});}});
 }
 
-// start of abplch which edit boxes every time 
-function abplch(){
-   absbox.innerHTML='';
-   prebox.innerHTML='';
-   for(item of absl){absbox.innerHTML+=apb1+item+apb2+item+apb4;}
-   for(item of prel){prebox.innerHTML+=apb1+item+apb3+item+apb4;}
-}
+// start of click events
 
-// start of onclk event onlick 
-function onclk(event) {
-    if(event.target.closest(".pre")){
-       rollnoc = Math.floor(event.target.closest(".pa").getAttribute("rollno"));
-	   if(prel.includes(rollnoc)){
-	       
-	   }else{
-	    prel.push(rollnoc);
-		prel.sort(function(a, b){return a-b});
-		pal[copl.indexOf(rollnoc)]="P";
-		if(absl.includes(rollnoc)){
-		   absl.splice(absl.indexOf(rollnoc),1);
-		   event.target.closest(".pre").nextElementSibling.style.border = "5px solid #d6bc14";
-		 }
-		if(rcl.includes(rollnoc)){
-			rcl.splice(rcl.indexOf(rollnoc),1);
-			rcl.sort(function(a, b){return a-b});
-			document.getElementById(("cstu"+rollnoc)).parentNode.remove();
-		}else{
-			rcl.push(rollnoc);
-			rcl.sort(function(a, b){return a-b});
-			if(rcl.length){
-				if(rcl.indexOf(rollnoc) == 0){
-					tdiv.innerHTML = cb1+rollnoc+cb3+rollnoc+cb4;
-					chngbv.insertBefore(document.getElementById(("cstu"+rcl[1])));
-				}else if(rcl.indexOf(rollnoc) == (rcl.length - 1)){
-					chngbv.innerHTML += cb1+rollnoc+cb3+rollnoc+cb4;
-				}else{
-					tdiv.innerHTML = cb1+rollnoc+cb3+rollnoc+cb4;
-					chngbv.insertBefore(document.getElementById(("cstu"+rollnoc)), document.getElementById(("cstu"+rcl[(rcl.indexOf(rollnoc) + 1)])));
-				}
-			}else{
-				chngbv.innerHTML = cb1+rollnoc+cb3+rollnoc+cb4;
-			}
-		}
-		abplch();
-		document.getElementById("tdap"+rollnoc).innerText="P";
-		event.target.closest(".pre").style.border = "5px solid lime";
-	   }
-    }else if(event.target.closest(".abs")){
-       rollnoc = Math.floor(event.target.closest(".pa").getAttribute("rollno"));
-	   if(absl.includes(rollnoc)){
-	       
-	   }else{
+function clkpre(rollnoc){
 	    absl.push(rollnoc);
 		absl.sort(function(a, b){return a-b});
-		pal[copl.indexOf(rollnoc)]="A";
-		if(prel.includes(rollnoc)){
-		   prel.splice(prel.indexOf(rollnoc),1);
-		   prel.sort(function(a, b){return a-b});
-		   event.target.closest(".abs").previousElementSibling.style.border = "5px solid #d6bc14";
-		}
+		prel.splice(prel.indexOf(rollnoc),1);
+		document.getElementById("apbae"+rollnoc).style.display="flex";
+		document.getElementById("apbpe"+rollnoc).style.display="none";
 		if(rcl.includes(rollnoc)){
 			rcl.splice(rcl.indexOf(rollnoc),1);
-			rcl.sort(function(a, b){return a-b});
-			document.getElementById(("cstu"+rollnoc)).parentNode.remove();
+			document.getElementById("cbpe"+rollnoc).style.display="none";
 		}else{
 			rcl.push(rollnoc);
 			rcl.sort(function(a, b){return a-b});
-			if(rcl.length){
-				if(rcl.indexOf(rollnoc) == 0){
-					tdiv.innerHTML = cb1+rollnoc+cb2+rollnoc+cb4;
-					chngbv.insertBefore(document.getElementById(("cstu"+rcl[1])));
-				}else if(rcl.indexOf(rollnoc) == (rcl.length - 1)){
-					chngbv.innerHTML += cb1+rollnoc+cb2+rollnoc+cb4;
-				}else{
-					tdiv.innerHTML = cb1+rollnoc+cb2+rollnoc+cb4;
-					chngbv.insertBefore(document.getElementById(("cstu"+rollnoc)), document.getElementById(("cstu"+rcl[(rcl.indexOf(rollnoc) + 1)])));
-				}
-			}else{
-				chngbv.innerHTML = cb1+rollnoc+cb2+rollnoc+cb4;
-			}
+			document.getElementById("cbae"+rollnoc).style.display="flex";
 		}
-		abplch();
-		document.getElementById("tdap"+rollnoc).innerText="A";
-		event.target.closest(".abs").style.border = "5px solid red";
-	   }
-	}else if(event.target.closest(".apbpr")){
-       rollnoc = Math.floor(event.target.closest(".apbpr").getAttribute("id").replace('apbstu',''));
-	   if(prel.includes(rollnoc)){
-	       
-	   }else{
+		document.getElementById("tdap"+rollnoc).innerText="P";
+}
+function clkabs(rollnoc){
 	    prel.push(rollnoc);
 		prel.sort(function(a, b){return a-b});
-		pal[copl.indexOf(rollnoc)]="P";
-		document.getElementById("attcon"+rollnoc).getElementsByClassName('pre')[0].style.border='5px solid lime';
-		document.getElementById("attcon"+rollnoc).getElementsByClassName('abs')[0].style.border='5px solid #d6bc14';
-		if(absl.includes(rollnoc)){
 		absl.splice(absl.indexOf(rollnoc),1);
-		absl.sort(function(a, b){return a-b});
-		}
+		document.getElementById("apbae"+rollnoc).style.display="none";
+		document.getElementById("apbpe"+rollnoc).style.display="flex";
 		if(rcl.includes(rollnoc)){
 			rcl.splice(rcl.indexOf(rollnoc),1);
-			rcl.sort(function(a, b){return a-b});
-			document.getElementById(("cstu"+rollnoc)).parentNode.remove();
+			document.getElementById("cbae"+rollnoc).style.display="none";
 		}else{
 			rcl.push(rollnoc);
 			rcl.sort(function(a, b){return a-b});
-			if(rcl.length){
-				if(rcl.indexOf(rollnoc) == 0){
-					tdiv.innerHTML = cb1+rollnoc+cb3+rollnoc+cb4;
-					chngbv.insertBefore(document.getElementById(("cstu"+rcl[1])));
-				}else if(rcl.indexOf(rollnoc) == (rcl.length - 1)){
-					chngbv.innerHTML += cb1+rollnoc+cb3+rollnoc+cb4;
-				}else{
-					tdiv.innerHTML = cb1+rollnoc+cb3+rollnoc+cb4;
-					chngbv.insertBefore(document.getElementById(("cstu"+rollnoc)), document.getElementById(("cstu"+rcl[(rcl.indexOf(rollnoc) + 1)])));
-				}
-			}else{
-				chngbv.innerHTML = cb1+rollnoc+cb3+rollnoc+cb4;
-			}
+			document.getElementById("cbpe"+rollnoc).style.display="flex";
 		}
-		abplch();
 		document.getElementById("tdap"+rollnoc).innerText="P";
-	   }
-	}else if(event.target.closest(".apbab")){
-           rollnoc = Math.floor(event.target.closest(".apbab").getAttribute("id").replace('apbstu',''));
-	   if(absl.includes(rollnoc)){
-	       
-	   }else{
-	     absl.push(rollnoc);
-		 absl.sort(function(a, b){return a-b});
-		 pal[copl.indexOf(rollnoc)]="A";
-		 document.getElementById("attcon"+rollnoc).getElementsByClassName('abs')[0].style.border='5px solid red';
-		 document.getElementById("attcon"+rollnoc).getElementsByClassName('pre')[0].style.border='5px solid #d6bc14';
-		 if(prel.includes(rollnoc)){
-		 prel.splice(prel.indexOf(rollnoc),1);
-		 prel.sort(function(a, b){return a-b});
-		 }
-		if(rcl.includes(rollnoc)){
-			rcl.splice(rcl.indexOf(rollnoc),1);
-			rcl.sort(function(a, b){return a-b});
-			document.getElementById(("cstu"+rollnoc)).parentNode.remove();
-		}else{
-			rcl.push(rollnoc);
-			rcl.sort(function(a, b){return a-b});
-			if(rcl.length){
-				if(rcl.indexOf(rollnoc) == 0){
-					tdiv.innerHTML = cb1+rollnoc+cb2+rollnoc+cb4;
-					chngbv.insertBefore(document.getElementById(("cstu"+rcl[1])));
-				}else if(rcl.indexOf(rollnoc) == (rcl.length - 1)){
-					chngbv.innerHTML += cb1+rollnoc+cb2+rollnoc+cb4;
-				}else{
-					tdiv.innerHTML = cb1+rollnoc+cb2+rollnoc+cb4;
-					chngbv.insertBefore(document.getElementById(("cstu"+rollnoc)), document.getElementById(("cstu"+rcl[(rcl.indexOf(rollnoc) + 1)])));
-				}
-			}else{
-				chngbv.innerHTML = cb1+rollnoc+cb2+rollnoc+cb4;
-			}
-		}
-		abplch();
-		document.getElementById("tdap"+rollnoc).innerText="A";
-	   }
-	}
 }
-// end of onclk event onlick 
+// end of click events
 
 // start of crtsht create sheet
 function crtsht(){
@@ -400,65 +225,53 @@ function drawatt(lv){
 
 addEventListener("beforeunload", unld);
 
-atbe.innerHTML='';
 absbox.innerHTML='';
 prebox.innerHTML='';
 document.getElementById("attsht").innerHTML='';
-u=0;
+absbstr='';
+prebstr='';
+chngbstr='';
 
-studcon=0, absl=[], prel=[], copl=[], pal=[], rcl=[], batches='';
+studcon=0, absl=[], prel=[], copl=[], pal=[], rcl=[];
 arrol=[];
 if(lv.includes("A")){
 arrol.push([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]);
 arrol.push([29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56]);
 arrol.push([57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73,74,75,76,77,78,79,80,81,82,83]);
 studcon+=83;
-batches+='As';
 }
 if(lv.includes("B")){
 arrol.push([84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100,101,102,103,104,105,106,107,108,109,110,111]);
 arrol.push([112,113,114,115,116,117,118,119,120,121,122,123,124,125,126,127,128,129,130,131,132,133,134,135,136,137,138,139]);
 arrol.push([140,141,142,143,144,145,146,147,148,149,150,151,152,153,154,155,156,157,158,159,160,161,162,163,164,165,166]);
 studcon+=83;
-batches+='Bs';
 }
 if(lv.includes("C")){
 arrol.push([167,168,169,170,171,172,173,174,175,176,177,178,179,180,181,182,183,184,185,186,187,188,189,190,191,192,193,194]);
 arrol.push([195,196,197,198,199,200,201,202,203,204,205,206,207,208,209,210,211,212,213,214,215,216,217,218,220,221,222,223]);
 arrol.push([224,225,226,227,228,229,230,231,232,233,234,235]);
 studcon+=69;
-batches+='Cs';
 }
 if(lv.includes("many")){
-j=1;
 i=1;
-etrc = Math.ceil(studcon/(Math.floor((document.body.offsetWidth-40)/180)));
 for(sbar of arrol){
+attentabstr='';
 document.getElementById("attsht").innerHTML += '<table class="main" ><thead><tr class="" style="background:silver;"><td class="imgtr">Rno</td></td><td class="imgta">?</td></tr></thead><tbody id="attentab'+i+'"></tbody></table>';
 for(item of sbar){
-	if(1===((j)%etrc)){
-	  atbe.innerHTML+=attboxtbsf+(u+1)+attboxtbss;
-	  u++;
-	}
-	//prebox.innerHTML+=apb1+item+apb3+item+apb4;
-	if(multiadm){
-		pal.push("A");
-		absl.push(item);
-		document.getElementById("attentab"+i).innerHTML+='<tr class="dumy"><td class="imgtr">'+item+'</td><td id="tdap'+item+'" class="imgta">A</td></tr>';
-		document.getElementById("attboxtb"+u).innerHTML+=attboxtr1+item+attboxtr2+item+attboxtr3+item+attboxtr5;
-	}else{
-		pal.push("P");
-		prel.push(item);
-		document.getElementById("attentab"+i).innerHTML+='<tr class="dumy"><td class="imgtr">'+item+'</td><td id="tdap'+item+'" class="imgta">P</td></tr>';
-		document.getElementById("attboxtb"+u).innerHTML+=attboxtr1+item+attboxtr2+item+attboxtr3+item+attboxtr4;
-	}
+	pal.push("A");
+	absl.push(item);
+	attentabstr+='<tr class="dumy"><td class="imgtr">'+item+'</td><td id="tdap'+item+'" class="imgta">A</td></tr>';
+	absbstr+=apb1+item+apb2+item+apb3+item+apb5;
+	prebstr+=apb1+item+apb2+item+apb4+item+apb5;
+	chngbstr+=cba+item+cb2+item+cb3+cbp+item+cb2+item+cb4;
 	copl.push(item);
-	j=j+1;
 }
+document.getElementById("attentab"+i).innerHTML = attentabstr;
 i++;
 }
-document.getElementById("attboxtb"+u).closest(".main").style.height=((studcon%etrc)*48)+'px';
-abplch();
+absbox.innerHTML=absbstr;
+prebox.innerHTML=prebstr;
+chngbv.innerHTML=chngbstr;
 }
 // here made JSON of our batches
 tmpstr='{';
@@ -466,6 +279,7 @@ i=0;
 for(item of pal){tmpstr+=('"'+copl[i]+'":"'+item+'",');i++;}
 tmpstr+='"tmp":"t"}';
 
+// get empty room and start using it
 var xhttf = new XMLHttpRequest();
 xhttf.responseType="json";
 xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
@@ -474,7 +288,6 @@ xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 
 	xhttt.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
 	var xhtto = new XMLHttpRequest();
 	xhtto.onreadystatechange = function(){if(this.readyState == 4 && this.status == 200){
-	//urlfs = "https://osmaniastudent.github.io/as/ats.html?"+setroom+"sss"+batches;
 	caption=encodeURI("Subject : "+document.getElementById("subji").value+"  Date : "+new Date().toDateString()+"  Time: "+document.getElementById("strtimpic").value+"-"+document.getElementById("endtimpic").value+"  Batches :"+bstr+" Roll No: "+rollary[0]+"-"+rollary[1]+"  Administered by: "+document.getElementById("facti").value);
 	var xtthp = new XMLHttpRequest();
 	xtthp.responseType="json";
@@ -487,8 +300,6 @@ xhttf.onreadystatechange = function(){if(this.readyState == 4 && this.status == 
 	}};
 	xhtto.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl.json'), true);
 	xhtto.setRequestHeader("Content-Type", "application/json");
-	// here send JSON of our batches
-	//console.log(JSON.stringify(tmpstr));
 	xhtto.send(tmpstr);
 	}};
 	xhttt.open("PUT", ('https://fitbeau-5606d.firebaseio.com/room/inuse/room'+setroom+'.json'), true);
@@ -536,6 +347,8 @@ function editgms(){
    for (items in respe){
 	if(respe[items]=='A'){
 	   tmpstr1+=(" "+copl[i]+",");
+	} else if (absl.includes(Number(items))){
+		tmpstr1+=(" "+copl[i]+",");
 	}
 	i++;
    }
@@ -560,26 +373,30 @@ function refreshl(){
    var respe = this.response;
    var i=0;
    for (items in respe){
-   if (rcl.includes(Math.floor(items))){
-        if (pabsl.includes(Math.floor(items))){
-			absl.push(Math.floor(items))
-		}else if (pprel.includes(Math.floor(items))){
-			prel.push(Math.floor(items));
+   if (rcl.includes(Number(items))){
+        if (pabsl.includes(Number(items))){
+			absl.push(Number(items))
+		}else if (pprel.includes(Number(items))){
+			prel.push(Number(items));
 		}
    }else if(respe[items]=='A'){
-		absl.push(Math.floor(items));
+        if (pprel.includes(Number(items))){
+		document.getElementById("apbae"+items).style.display="flex";
+		document.getElementById("apbpe"+items).style.display="none";
+		absl.push(Number(items));
+		}
+		absl.push(Number(items));
 		pal[i]="A";
-		document.getElementById("attcon"+copl[i]).getElementsByClassName('pre')[0].style.border='5px solid #d6bc14';
-		document.getElementById("attcon"+copl[i]).getElementsByClassName('abs')[0].style.border='5px solid red';
    }else if(respe[items]=='P'){
-		prel.push(Math.floor(items));
+		if (absl.includes(Number(items))){
+		document.getElementById("apbae"+items).style.display="none";
+		document.getElementById("apbpe"+items).style.display="flex";
+		}
+		prel.push(Number(items));
 		pal[i]="P";
-		document.getElementById("attcon"+copl[i]).getElementsByClassName('pre')[0].style.border='5px solid lime';
-		document.getElementById("attcon"+copl[i]).getElementsByClassName('abs')[0].style.border='5px solid #d6bc14';
    }
    i++;
    }
-   abplch();
   }};
    xhttpe.open("GET", ('https://fitbeau-5606d.firebaseio.com/room/room'+setroom+'/apcl/.json'), true);
    xhttpe.send();
@@ -642,33 +459,9 @@ function unld(e){
 }
 
 /*
-if(document.getElementById('mae').checked){
-   multiadm=true;
-}else if(document.getElementById('mad').checked){
-   multiadm=false;
-}else{
-   swal("Error","Multiple Admin not defined","error");
-   return;
-}
-
-else if(lv.includes("custom")){
-//lv=["custom",1,26] for 1-25
-j=lv[1];
-etrc = Math.ceil((lv[2]-lv[1])/(Math.floor(document.body.offsetWidth/160)));
-while(j<lv[2]){
-	if(1===(((j-lv[1])+1)%etrc)){
-	  atbe.innerHTML+=attboxtbsf+(u+1)+attboxtbss;
-	  u++;
-	}
-	document.getElementById("attboxtb"+u).innerHTML+=attboxtr1+j+attboxtr2+j+attboxtr3+j+attboxtr4;
-	j=j+1;
-}
-}
-
-editgms();
-
-else if(respe[items]=='P'){
-	   tmpstr2+=(" "+copl[i]+",");
+function abplch(){
+   for(item of absl){absbox.innerHTML+=apba+item+apb2+item+apb3+item+apb5;}
+   for(item of prel){prebox.innerHTML+=apbp+item+apb2+item+apb4+item+apb5;}
 }
 */
 
