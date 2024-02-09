@@ -52,8 +52,8 @@ table{border-spacing: 0px;}
 </head>
 <body>
 <div id="bodya">
-
 <div id="tools">
+
 <div class="flex">
 <form style="justify-content:space-around;display:flex;">
 <label class="labtc" style="flex-direction:column;">Subject:<input type="text" list="subjs" id="subji"/><datalist id="subjs" style="height:30%;overflow-y:auto;"><option>Microbiology</option><option>Pathology</option><option>Pharmacology</option><option>Forensic-Medicine</option><option>Preventive-Medicine</option></datalist>
@@ -65,14 +65,13 @@ table{border-spacing: 0px;}
 </form>
 </div>
 
-<div class="flex">
+<div class="flex" style="">
 <form style="justify-content:space-around;display:flex;margin-block-end:0px;column-gap:10px;">
 <label class="labtc">A:<input class="inptc" type="checkbox" id="bata"></label>
 <label class="labtc">B:<input class="inptc" type="checkbox" id="batb"></label>
 <label class="labtc">C:<input class="inptc" type="checkbox" id="batc"></label>
 </form>
 </div>
-
 <div class="flex" style="justify-content:center;column-gap:6px;">
 <button class="labtc" type="button" onclick="toolchk(1)">Uncheck-All</button>
 <button class="labtc" type="button" onclick="toolchk(2)">Check-All</button>
@@ -83,12 +82,10 @@ table{border-spacing: 0px;}
 <button type="button" style="display:block;width:50%;background-color:aqua;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;margin-top:5px;" onclick='sendimg(document.getElementById("finallook"));'>Send Attendance</button>
 <button type="button" style="display:block;width:50%;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;margin-top:5px;" onclick='endatts()'>End Attendance System</button>
 </div>
-
 <div id="help" style="display:none;">
 <div id="info"></div>
 <div id="kode" style="width:50%;background-color:aqua;text-align:center;font-size:15px;border:solid 2px black;padding:4px;margin:auto;margin-top:3px;"></div>
 </div>
-
 <div id="atctrl">
 <div style="border:solid 2px black;margin-top:10px;">
 <div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('absudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('absudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Absent Students</div>
@@ -109,7 +106,7 @@ table{border-spacing: 0px;}
 </div>
 </div>
 
-<div style="height:1376px;width:1048px;border:1px solid black;font-family:monospace;font-size:20px;margin-top:10px;" id="finallook">
+<div style="height:1376px;width:1048px;border:1px solid black;font-family:monospace;font-size:20px;margin-top:10px;" id="finallook"  onclick="">
 <div style="height:400px;width:1048px;display:flex;flex-direction:column;justify-content:space-around;">
 <div style="height:100px;width:100px;background:url(1.png);background-size:cover;align-self:center;"></div>
 <div style="height:250px;width:848px;display:flex;flex-direction:column;width:100%;">
@@ -118,12 +115,11 @@ table{border-spacing: 0px;}
 <div class="flex" style=""><div style="" id="rollfld">Roll No : </div><div style="" id="bachfld">Batches : </div><div style="" id="factfld">Administered by : </div></div>
 </div>
 </div>
-<div style="height:960px;width:1048px;display:flex;align-self:end;margin-bottom:15px;justify-content:space-around;">
+<div style="height:960px;width:1048px;display:flex;align-self:end;margin-bottom:15px;justify-content:space-around;" id="">
 <div style="height:960px;width:1048px;display:flex;align-self:end;margin-bottom:15px;justify-content:space-around;" id="attsht"></div>
 <div style="position:absolute;background:url(1.png);background-repeat:no-repeat;background-size:100% 100%;width: 960px;height: 960px;opacity: 15%;"></div>
 </div>
 </div>
-
 <div style="height:1376px;width:1048px;" id="screenshot"></div>
 </div>
 <div style="display:none;" id="msguifb"></div>
@@ -141,7 +137,7 @@ $('#endtimbut').on('click', function (){
 var arr = [], rcl=[];
 var screenshot = document.getElementById("screenshot");
 var resp, prel=[], absl=[], copl=[], pprel=[], pabsl=[], xhttp, msgid, etrc, studcon, arrol;
-var absbox=document.getElementById("absudbox"), prebox=document.getElementById("presudbox");
+var absbox=document.getElementById("absudbox"), prebox=document.getElementById("presudbox"), chngbv=document.getElementById("chngb");
 var caption, bstr;
 var rrrrr='', bps, pv=1, nt=42, i=1, j=1, tmparr, setroom, rollary=[], pal=[];
 
@@ -265,8 +261,8 @@ for(item of sbar){
 	pal.push("A");
 	absl.push(item);
 	attentabstr+='<tr class="dumy"><td class="imgtr">'+item+'</td><td id="tdap'+item+'" class="imgta">A</td></tr>';
-	absbstr+=apb1+item+apb2+item+apb3+item+apb5;
-	prebstr+=apb1+item+apb2+item+apb4+item+apb5;
+	absbstr+=apba+item+apb2+item+apb3+item+apb5;
+	prebstr+=apbp+item+apb2+item+apb4+item+apb5;
 	chngbstr+=cba+item+cb2+item+cb3+cbp+item+cb2+item+cb4;
 	copl.push(item);
 }
@@ -323,10 +319,10 @@ var xhttu = new XMLHttpRequest();
 xhttu.onreadystatechange = function() {if (this.readyState == 4 && this.status == 200) {
 var xhttp = new XMLHttpRequest();
 xhttp.responseType = 'json';
-xhttp.onreadystatechange = function() {if (this.readyState == 4 && this.status == 200) {
-document.getElementById("msgidb").innerText=(this.response.result.message_id);
+xhttp.onreadystatechange = function() {if (this.readyState == 4 && this.status == 200) {document.getElementById("msgidb").innerText=(this.response.result.message_id);
 msgid = document.getElementById("msgidb").innerText;
 document.getElementById("help").style.display="block";
+document.getElementById("attbox").style.display="flex";
 document.getElementById("atctrl").style.display="block";
 document.getElementById("crsbut").disabled = true;
 document.getElementById("cngshtb").style.display="block";
@@ -387,7 +383,7 @@ function refreshl(){
         if (pprel.includes(Number(items))){
 		document.getElementById("apbae"+items).style.display="flex";
 		document.getElementById("apbpe"+items).style.display="none";
-		document.getElementById("tdap"+items).innerText="A";
+		absl.push(Number(items));
 		}
 		absl.push(Number(items));
 		pal[i]="A";
@@ -395,7 +391,6 @@ function refreshl(){
 		if (absl.includes(Number(items))){
 		document.getElementById("apbae"+items).style.display="none";
 		document.getElementById("apbpe"+items).style.display="flex";
-		document.getElementById("tdap"+items).innerText="P";
 		}
 		prel.push(Number(items));
 		pal[i]="P";
