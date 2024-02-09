@@ -109,9 +109,13 @@ function fetap(){
    prebstr='';
    chngbstr='';
    for (item in resp){
+       if (item == "tmp"){
+
+       }else{
 	absbbstr+=apba+item+apb2+item+apb3+item+apb5;
 	prebstr+=apbp+item+apb2+item+apb4+item+apb5;
 	chngbstr+=cba+item+cb2+item+cb3+cbp+item+cb2+item+cb4;
+       }
    }
    absbox.innerHTML=absbbstr;
    prebox.innerHTML=prebstr;
