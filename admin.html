@@ -18,7 +18,7 @@
    border: 1px solid black;
 }
 td{text-align:center;border:1px solid black;}
-tr{border:1px solid black;}
+tr{border:1px solid black;height:fit-content;}
 table{border-spacing: 0px;}
 
 .flex{display: flex;justify-content: space-around;padding:10px;}
@@ -345,10 +345,12 @@ function editgms(){
    var respe = this.response;
    var i=0;
    for (items in respe){
-	if(respe[items]=='A'){
+	if (rcl.includes(Number(items))){
+        if (absl.includes(Number(items))){
 	   tmpstr1+=(" "+copl[i]+",");
-	} else if (absl.includes(Number(items))){
-		tmpstr1+=(" "+copl[i]+",");
+	}
+	}else if(respe[items]=='A'){
+	   tmpstr1+=(" "+copl[i]+",");
 	}
 	i++;
    }
@@ -375,7 +377,7 @@ function refreshl(){
    for (items in respe){
    if (rcl.includes(Number(items))){
         if (pabsl.includes(Number(items))){
-			absl.push(Number(items))
+			absl.push(Number(items));
 		}else if (pprel.includes(Number(items))){
 			prel.push(Number(items));
 		}
@@ -437,13 +439,14 @@ function sendimg(idoe){
     taintTest: false,
     type: "view",
   }).then(function(canvas){
-    canvas.toBlob(function (blob){var formData = new FormData();formData.append('photo', blob);formData.append('caption', "Sheet");
+    canvas.toBlob(function (blob){
+	   var formData = new FormData();formData.append('photo', blob);formData.append('caption', "Sheet");
 	   var reque = new XMLHttpRequest();
 	   reque.open("POST", "https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendPhoto?chat_id=-1001310291767");
 	   reque.send(formData);
-       canvas.style.width = "100%"; screenshot.innerHTML='';screenshot.appendChild(canvas);
+           canvas.style.width = "100%"; screenshot.innerHTML='';screenshot.appendChild(canvas);
 	   editgms();
-    },"image/jpeg",1);
+    },"image/jpeg",0.5);
   });
 }
 // end of sendimg sended canvas image
