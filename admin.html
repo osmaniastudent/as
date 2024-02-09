@@ -319,10 +319,10 @@ var xhttu = new XMLHttpRequest();
 xhttu.onreadystatechange = function() {if (this.readyState == 4 && this.status == 200) {
 var xhttp = new XMLHttpRequest();
 xhttp.responseType = 'json';
-xhttp.onreadystatechange = function() {if (this.readyState == 4 && this.status == 200) {document.getElementById("msgidb").innerText=(this.response.result.message_id);
+xhttp.onreadystatechange = function() {if (this.readyState == 4 && this.status == 200) {
+document.getElementById("msgidb").innerText=(this.response.result.message_id);
 msgid = document.getElementById("msgidb").innerText;
 document.getElementById("help").style.display="block";
-document.getElementById("attbox").style.display="flex";
 document.getElementById("atctrl").style.display="block";
 document.getElementById("crsbut").disabled = true;
 document.getElementById("cngshtb").style.display="block";
@@ -383,17 +383,18 @@ function refreshl(){
         if (pprel.includes(Number(items))){
 		document.getElementById("apbae"+items).style.display="flex";
 		document.getElementById("apbpe"+items).style.display="none";
-		absl.push(Number(items));
-		}
-		absl.push(Number(items));
-		pal[i]="A";
+		document.getElementById("tdap"+items).innerText="A";
+	}
+	absl.push(Number(items));
+	pal[i]="A";
    }else if(respe[items]=='P'){
-		if (absl.includes(Number(items))){
-		document.getElementById("apbae"+items).style.display="none";
-		document.getElementById("apbpe"+items).style.display="flex";
-		}
-		prel.push(Number(items));
-		pal[i]="P";
+	if (pabsl.includes(Number(items))){
+	   document.getElementById("apbae"+items).style.display="none";
+	   document.getElementById("apbpe"+items).style.display="flex";
+	   document.getElementById("tdap"+items).innerText="P";
+	}
+	prel.push(Number(items));
+	pal[i]="P";
    }
    i++;
    }
