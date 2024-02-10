@@ -86,6 +86,7 @@ table{border-spacing: 0px;}
 <div id="info"></div>
 <div id="kode" style="width:50%;background-color:aqua;text-align:center;font-size:15px;border:solid 2px black;padding:4px;margin:auto;margin-top:3px;"></div>
 </div>
+	
 <div id="atctrl">
 <div style="border:solid 2px black;margin-top:10px;">
 <div style="display:block;width:auto;border-bottom:solid 2px black;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('absudbox').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('absudbox').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Absent Students</div>
@@ -104,9 +105,10 @@ table{border-spacing: 0px;}
 <div class="flex" id="chngb" style="flex-wrap:wrap;">
 </div>
 </div>
+	
 </div>
 
-<div style="height:1376px;width:1048px;border:1px solid black;font-family:monospace;font-size:20px;margin-top:10px;" id="finallook"  onclick="">
+<div style="height:1376px;width:1048px;border:1px solid black;font-family:monospace;font-size:20px;margin-top:10px;" id="finallook">
 <div style="height:400px;width:1048px;display:flex;flex-direction:column;justify-content:space-around;">
 <div style="height:100px;width:100px;background:url(1.png);background-size:cover;align-self:center;"></div>
 <div style="height:250px;width:848px;display:flex;flex-direction:column;width:100%;">
@@ -120,11 +122,14 @@ table{border-spacing: 0px;}
 <div style="position:absolute;background:url(1.png);background-repeat:no-repeat;background-size:100% 100%;width: 960px;height: 960px;opacity: 15%;"></div>
 </div>
 </div>
+
 <div style="height:1376px;width:1048px;" id="screenshot"></div>
 </div>
 <div style="display:none;" id="msguifb"></div>
 <div style="display:none;" id="msgidb"></div>
 <button type="button" id="cngshtb" style="display:none;width:50%;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;" onclick='chngsht();'>Change Sheet</button>
+<div style="text-align:center;"> Created by</div>
+<div style="text-align:center;font:message-box;"> Zulqar Nayn</div>
 <script>
 //https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767&text=bye
 
@@ -256,7 +261,7 @@ if(lv.includes("many")){
 i=1;
 for(sbar of arrol){
 attentabstr='';
-document.getElementById("attsht").innerHTML += '<table class="main" ><thead><tr class="" style="background:silver;"><td class="imgtr">Rno</td></td><td class="imgta">?</td></tr></thead><tbody id="attentab'+i+'" style="height:'+(22*sbar.length)+'+px;"></tbody></table>';
+document.getElementById("attsht").innerHTML += '<table class="main" style="height:'+((sbar.length+2)*22)+'px;"><thead><tr class="" style="background:silver;"><td class="imgtr">Rno</td></td><td class="imgta">?</td></tr></thead><tbody id="attentab'+i+'"></tbody></table>';
 for(item of sbar){
 	pal.push("A");
 	absl.push(item);
@@ -470,7 +475,5 @@ function abplch(){
 */
 
 </script>
-<div style="text-align:center;"> Created by</div>
-<div style="text-align:center;font:message-box;"> Zulqar Nayn</div>
 </body>
 </html>
