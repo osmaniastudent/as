@@ -41,6 +41,7 @@ table{border-spacing: 0px;}
 .apba{min-width:61px;min-height:25px;border-right:2px solid black;background-color:seashell;width:fit-content;text-align:center;padding:4px;font-size:30px;font-family: monospace;}
 .apbab{width:45px;height:45px;background:url('abs.png');background-size:contain;border:5px solid #d6bc14;}
 .apbpr{width:45px;height:45px;background:url('pre.png');background-size:contain;border:5px solid #d6bc14;}
+.lockc{width:45px;height:45px;background:url('lock.png');background-size:contain;border:5px solid #d6bc14;}
 
 .flexcb{display:none;border:2px solid black;background:#d6bc14;}
 </style>
@@ -105,7 +106,13 @@ table{border-spacing: 0px;}
 <div class="flex" id="chngb" style="flex-wrap:wrap;">
 </div>
 </div>
-	
+
+<div style="border:solid 2px black;margin-top:10px;">
+<div style="display:block;width:auto;border-bottom:solid 2px black;background-color:aqua;font-family:monospace;font-size:20px;text-align:center;padding:8px;" onclick="if(this.style.backgroundColor =='red'){document.getElementById('lokb').style.display='none';this.style.borderBottom='none';this.style.backgroundColor ='aqua';}else{document.getElementById('lokb').style.display='flex';this.style.borderBottom='solid 2px black';this.style.backgroundColor ='red';}">Locker</div>
+<div class="flex" id="lokb" style="flex-wrap:wrap;display:none;">
+</div>
+</div>
+
 </div>
 
 <div style="height:1376px;width:1048px;border:1px solid black;font-family:monospace;font-size:20px;margin-top:10px;" id="finallook">
@@ -128,8 +135,8 @@ table{border-spacing: 0px;}
 <div style="display:none;" id="msguifb"></div>
 <div style="display:none;" id="msgidb"></div>
 <button type="button" id="cngshtb" style="display:none;width:50%;background-color:red;font-family:monospace;font-size:20px;text-align:center;padding:8px;margin:auto;" onclick='chngsht();'>Change Sheet</button>
-<div style="text-align:center;"> Created by</div>
-<div style="text-align:center;font:message-box;"> Zulqar Nayn</div>
+<div style="text-align:center;margin-top:5px;"> Created by</div>
+<div style="text-align:center;font:message-box;margin-top:3px;"> Zulqar Nayn</div>
 <script>
 //https://api.telegram.org/bot5983894147:AAF31AIhn2NAqrlejK-1BDvaZNoj1a2o4N0/sendmessage?chat_id=-1001310291767&text=bye
 
@@ -139,18 +146,20 @@ $('#endtimbut').on('click', function (){
 	$('#endtimpic').timepicker('setTime', new Date());
 });
 
-var arr = [], rcl=[];
+var arr = [], rcl=[], lockl=[];
 var screenshot = document.getElementById("screenshot");
 var resp, prel=[], absl=[], copl=[], pprel=[], pabsl=[], xhttp, msgid, etrc, studcon, arrol;
-var absbox=document.getElementById("absudbox"), prebox=document.getElementById("presudbox"), chngbv=document.getElementById("chngb");
+var absbox=document.getElementById("absudbox"), prebox=document.getElementById("presudbox"), chngbv=document.getElementById("chngb"), lokbv=document.getElementById("lokb");
 var caption, bstr;
 var rrrrr='', bps, pv=1, nt=42, i=1, j=1, tmparr, setroom, rollary=[], pal=[];
 
 var apba='<div class="flexab" id="apbae', apbp='<div class="flexpr" id="apbpe', apb2='"><div class="apb">', apb3='</div><button class="apbab" onclick="clkabs(', apb4='</div><button class="apbpr" onclick="clkpre(', apb5=')"></button></div>';
 
+var loke1='<div class="flexpr" id="locke', loke2='"><div class="apb">', loke3='</div><button class="lockc" onclick="locker(this,', loke4=');"></button></div>';
+
 var cba='<div class="flexcb" id="cbae', cbp='<div class="flexcb" id="cbpe', cb2='"><div class="apb">', cb3='</div><div class="apbab"></div></div>', cb4='</div><div class="apbpr"></div></div>';
 
-var attentabstr='', absbstr='', prebstr='', chngbstr='';
+var attentabstr='', absbstr='', prebstr='', chngbstr='', lokbstr;
 
 var multiadm=true, msguif='';
 
@@ -171,6 +180,9 @@ swal({title: "Are you sure?",text: "It will start Attendance System",icon: "warn
 // start of click events
 
 function clkpre(rollnoc){
+		if (lockl.includes(rollnoc)){
+			swal("I am Locked");
+		}else{
 	    absl.push(rollnoc);
 		absl.sort(function(a, b){return a-b});
 		prel.splice(prel.indexOf(rollnoc),1);
@@ -185,8 +197,12 @@ function clkpre(rollnoc){
 			document.getElementById("cbae"+rollnoc).style.display="flex";
 		}
 		document.getElementById("tdap"+rollnoc).innerText="A";
+		}
 }
 function clkabs(rollnoc){
+		if (lockl.includes(rollnoc)){
+			swal("I am Locked");
+		}else{
 	    prel.push(rollnoc);
 		prel.sort(function(a, b){return a-b});
 		absl.splice(absl.indexOf(rollnoc),1);
@@ -201,7 +217,35 @@ function clkabs(rollnoc){
 			document.getElementById("cbpe"+rollnoc).style.display="flex";
 		}
 		document.getElementById("tdap"+rollnoc).innerText="P";
+		}
 }
+function locker(ele, rollnoc){
+		if (lockl.includes(rollnoc)){
+			lockl.splice(lockl.indexOf(rollnoc),1);
+			rcl.splice(rcl.indexOf(rollnoc),1);
+			if (prel.includes(rollnoc)){
+				document.getElementById("cbpe"+rollnoc).style.display="none";
+			}else{
+				document.getElementById("cbae"+rollnoc).style.display="none";
+			}
+			ele.style.background="url('lock.png')";
+		}else{
+			lockl.push(rollnoc);
+			lockl.sort(function(a, b){return a-b});
+			if(rcl.includes(rollnoc)){
+			}else{
+			rcl.push(rollnoc);
+			rcl.sort(function(a, b){return a-b});
+			if (prel.includes(rollnoc)){
+				document.getElementById("cbpe"+rollnoc).style.display="flex";
+			}else{
+				document.getElementById("cbae"+rollnoc).style.display="flex";
+			}
+			}
+			ele.style.background="background:url('unlock.png')";
+		}
+}
+
 // end of click events
 
 // start of crtsht create sheet
@@ -236,8 +280,8 @@ document.getElementById("attsht").innerHTML='';
 absbstr='';
 prebstr='';
 chngbstr='';
-
-studcon=0, absl=[], prel=[], copl=[], pal=[], rcl=[];
+lokbstr='';
+studcon=0, absl=[], prel=[], copl=[], pal=[], rcl=[], lockl=[];
 arrol=[];
 if(lv.includes("A")){
 arrol.push([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28]);
@@ -269,6 +313,7 @@ for(item of sbar){
 	absbstr+=apba+item+apb2+item+apb3+item+apb5;
 	prebstr+=apbp+item+apb2+item+apb4+item+apb5;
 	chngbstr+=cba+item+cb2+item+cb3+cbp+item+cb2+item+cb4;
+	lokbstr+=loke1+item+loke2+item+loke3+item+loke4;
 	copl.push(item);
 }
 document.getElementById("attentab"+i).innerHTML = attentabstr;
@@ -277,6 +322,7 @@ i++;
 absbox.innerHTML=absbstr;
 prebox.innerHTML=prebstr;
 chngbv.innerHTML=chngbstr;
+lokbv.innerHTML=lokbstr;
 }
 // here made JSON of our batches
 tmpstr='{';
