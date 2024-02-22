@@ -223,26 +223,24 @@ function locker(ele, rollnoc){
 		if (lockl.includes(rollnoc)){
 			lockl.splice(lockl.indexOf(rollnoc),1);
 			rcl.splice(rcl.indexOf(rollnoc),1);
-			if (prel.includes(rollnoc)){
-				document.getElementById("cbpe"+rollnoc).style.display="none";
-			}else{
+			if (absl.includes(rollnoc)){
 				document.getElementById("cbae"+rollnoc).style.display="none";
-			}
+	                }
 			ele.style.background="url('lock.png')";
+	                ele.style.backgroundSize="contain";
 		}else{
-			lockl.push(rollnoc);
-			lockl.sort(function(a, b){return a-b});
 			if(rcl.includes(rollnoc)){
 			}else{
+			lockl.push(rollnoc);
+			lockl.sort(function(a, b){return a-b});
 			rcl.push(rollnoc);
 			rcl.sort(function(a, b){return a-b});
-			if (prel.includes(rollnoc)){
-				document.getElementById("cbpe"+rollnoc).style.display="flex";
-			}else{
+			if (absl.includes(rollnoc)){
 				document.getElementById("cbae"+rollnoc).style.display="flex";
-			}
+	                }
 			}
 			ele.style.background="background:url('unlock.png')";
+			ele.style.backgroundSize="contain";
 		}
 }
 
