@@ -226,7 +226,7 @@ function locker(ele, rollnoc){
 			if (absl.includes(rollnoc)){
 				document.getElementById("cbae"+rollnoc).style.display="none";
 	                }
-			ele.style.background="url('lock.png')";
+			ele.style.backgroundImage="url('lock.png')";
 	                ele.style.backgroundSize="contain";
 		}else{
 			if(rcl.includes(rollnoc)){
@@ -239,7 +239,7 @@ function locker(ele, rollnoc){
 				document.getElementById("cbae"+rollnoc).style.display="flex";
 	                }
 			}
-			ele.style.background="background:url('unlock.png')";
+			ele.style.backgroundImage="url('unlock.png')";
 			ele.style.backgroundSize="contain";
 		}
 }
