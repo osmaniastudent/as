@@ -64,6 +64,7 @@ table{border-spacing: 0px;}
 <label class="labtc" style="flex-direction:column;">Time Start-End:<input type="text" placeholder="Start" id="strtimpic"/><input type="text" placeholder="End" id="endtimpic"/><button class="labtc" type="button" id="endtimbut">Set Current</button>
 </label>
 </form>
+<label class="labtc" style="margin:auto;width:50%;">Topic:<input type="text" id="topic" /></label>
 </div>
 
 <div class="flex" style="">
@@ -122,6 +123,7 @@ table{border-spacing: 0px;}
 <div style="font-size:25px;align-self:center;width:fit-content;">Osmania Medical College Attendance Sheet</div>
 <div class="flex" style=""><div style="" id="subjfld">Subject : </div><div id="timefld" style="">Time : </div><div style="" id="datefld">Date : </div></div>
 <div class="flex" style=""><div style="" id="rollfld">Roll No : </div><div style="" id="bachfld">Batches : </div><div style="" id="factfld">Administered by : </div></div>
+<div style="" id="topicb">Topic : </div>
 </div>
 </div>
 <div style="height:960px;width:1048px;display:flex;align-self:end;margin-bottom:15px;justify-content:space-around;" id="">
@@ -248,6 +250,9 @@ function locker(ele, rollnoc){
 
 // start of crtsht create sheet
 function crtsht(){
+if (document.getElementById("subji").value="" || document.getElementById("strtimpic").value="" || document.getElementById("endtimpic").value="" || document.getElementById("facti").value="" || document.getElementById("topic").value=""){
+   swal("Complete the Sheet Details);
+}else{
 document.getElementById("atctrl").style.display="none";
 tmparr=[];
 rollary=[0,0];
@@ -263,7 +268,9 @@ document.getElementById("datefld").innerText= "Date : "+new Date().toDateString(
 document.getElementById("rollfld").innerText= "Roll No : "+rollary[0]+"-"+rollary[1];
 document.getElementById("factfld").innerText= "Administered by: "+document.getElementById("facti").value;
 document.getElementById("bachfld").innerText= "Batches :"+bstr;
+document.getElementById("topicb").innerText= "Topic :"+document.getElementById("topic").value;
 drawatt(tmparr);
+}
 }
 // end of crtsht create sheet
 
